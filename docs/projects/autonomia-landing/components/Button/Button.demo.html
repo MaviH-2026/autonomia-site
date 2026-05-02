@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Button · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="./Button.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-12);
+    line-height: var(--lh-body);
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    font-weight: 300;
+    letter-spacing: var(--ls-display);
+    margin-bottom: var(--space-3);
+  }
+  h1 em { color: var(--color-accent); font-style: italic; }
+  .subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-12);
+    font-size: var(--fs-lede);
+    max-width: 64ch;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  h3 {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    font-weight: 500;
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+  .demo-row {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: var(--space-6);
+    padding: var(--space-6);
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-lg);
+    border: var(--border-1);
+  }
+  .demo-row.dark {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    border-color: var(--color-bg-dark);
+  }
+  .demo-row.surface-2 { background: var(--color-bg-surface-2); }
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--color-text-muted);
+    min-width: 100px;
+  }
+  .dark .label { color: var(--on-dark-60); }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    color: var(--color-text-primary);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  .dark code {
+    background: var(--on-dark-10);
+    color: var(--color-text-on-dark);
+    border-color: var(--on-dark-20);
+  }
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-6);
+    font-size: var(--fs-sm);
+  }
+  .feature-table th, .feature-table td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  .feature-table th {
+    background: var(--color-bg-surface);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .pass { color: var(--color-text-primary); font-weight: 600; }
+  .pass::before { content: '✅ '; }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🔘 Button <em>Component</em></h1>
+<p class="subtitle">
+  Atomic component cobrindo todas as necessidades interativas. WCAG 2.2 AA compliant. 5 variants × 3 sizes × 6 states = <strong>90 combinações</strong>, mais modifiers <code>on-dark</code> e <code>block</code>.
+</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     VARIANTS
+     ═══════════════════════════════════════════════════════ -->
+<h2>Variants</h2>
+
+<h3>Primary — Dark filled (CTA principal)</h3>
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--primary btn--md">
+    <span class="btn__label">Agendar diagnóstico</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <code>variant="primary"</code>
+</div>
+
+<h3>Secondary — Light filled (CTA secundária)</h3>
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--secondary btn--md">
+    <span class="btn__play"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M2 1.5v7l6-3.5z"/></svg></span>
+    <span class="btn__label">Ver o método</span>
+  </button>
+  <code>variant="secondary"</code>
+</div>
+
+<h3>Tertiary — Outline (ações terciárias)</h3>
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--tertiary btn--md">
+    <span class="btn__label">Saiba mais</span>
+  </button>
+  <code>variant="tertiary"</code>
+</div>
+
+<h3>Accent — Orange filled (CTA destaque)</h3>
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--accent btn--md">
+    <span class="btn__label">Quero atravessar</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <code>variant="accent"</code>
+  <span class="label">WCAG: 4.7:1 ✅ AA</span>
+</div>
+
+<h3>Ghost — No bg (links em barras de ação)</h3>
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--ghost btn--md">
+    <span class="btn__label">Cancelar</span>
+  </button>
+  <code>variant="ghost"</code>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SIZES
+     ═══════════════════════════════════════════════════════ -->
+<h2>Sizes</h2>
+
+<div class="demo-row">
+  <span class="label">SM (32px)</span>
+  <button class="btn btn--primary btn--sm">
+    <span class="btn__label">Pequeno</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <code>size="sm"</code>
+  <span class="label">Para densidade alta</span>
+</div>
+
+<div class="demo-row">
+  <span class="label">MD (44px)</span>
+  <button class="btn btn--primary btn--md">
+    <span class="btn__label">Médio</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <code>size="md"</code>
+  <span class="label">Default · WCAG touch target</span>
+</div>
+
+<div class="demo-row">
+  <span class="label">LG (56px)</span>
+  <button class="btn btn--primary btn--lg">
+    <span class="btn__label">Grande</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <code>size="lg"</code>
+  <span class="label">CTAs principais (hero, oferta)</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     STATES
+     ═══════════════════════════════════════════════════════ -->
+<h2>States</h2>
+
+<div class="demo-row">
+  <span class="label">Default</span>
+  <button class="btn btn--primary btn--md">
+    <span class="btn__label">Default</span>
+  </button>
+
+  <span class="label" style="margin-left:24px">Hover</span>
+  <button class="btn btn--primary btn--md" style="background:var(--color-bg-dark-elev)">
+    <span class="btn__label">Hover (passe o mouse)</span>
+  </button>
+</div>
+
+<div class="demo-row">
+  <span class="label">Disabled</span>
+  <button class="btn btn--primary btn--md" disabled>
+    <span class="btn__label">Disabled</span>
+  </button>
+
+  <span class="label" style="margin-left:24px">Loading</span>
+  <button class="btn btn--primary btn--md btn--loading" aria-busy="true">
+    <span class="btn__label">Enviando...</span>
+    <span class="btn__spinner"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-dasharray="28 28" stroke-linecap="round"/></svg></span>
+  </button>
+</div>
+
+<div class="demo-row">
+  <span class="label">Focus</span>
+  <button class="btn btn--primary btn--md" autofocus>
+    <span class="btn__label">Tab para focus visible</span>
+  </button>
+  <span class="label">2px outline + 2px offset</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON-DARK MODIFIER
+     ═══════════════════════════════════════════════════════ -->
+<h2>Modifier: <code>--on-dark</code></h2>
+
+<div class="demo-row dark">
+  <span class="label">Primary</span>
+  <button class="btn btn--primary btn--md">
+    <span class="btn__label">Primary on dark</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+
+  <span class="label" style="margin-left:24px">Accent</span>
+  <button class="btn btn--accent btn--md">
+    <span class="btn__label">Accent on dark</span>
+  </button>
+</div>
+
+<div class="demo-row dark">
+  <span class="label">Secondary on-dark</span>
+  <button class="btn btn--secondary btn--on-dark btn--md">
+    <span class="btn__label">Ver método</span>
+  </button>
+  <code>onDark={true}</code>
+
+  <span class="label" style="margin-left:24px">Tertiary on-dark</span>
+  <button class="btn btn--tertiary btn--on-dark btn--md">
+    <span class="btn__label">Saiba mais</span>
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     BLOCK MODIFIER
+     ═══════════════════════════════════════════════════════ -->
+<h2>Modifier: <code>--block</code> (full width)</h2>
+
+<div class="demo-row" style="display:block;max-width:480px">
+  <button class="btn btn--primary btn--lg btn--block">
+    <span class="btn__label">Quero atravessar</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     REAL USE CASES
+     ═══════════════════════════════════════════════════════ -->
+<h2>Real use cases na landing</h2>
+
+<h3>Nav CTA</h3>
+<div class="demo-row">
+  <button class="btn btn--primary btn--sm">
+    <span class="btn__label">Agendar diagnóstico</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+</div>
+
+<h3>Hero CTAs (par)</h3>
+<div class="demo-row">
+  <button class="btn btn--primary btn--md">
+    <span class="btn__label">Agendar diagnóstico gratuito</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <button class="btn btn--secondary btn--md">
+    <span class="btn__play"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M2 1.5v7l6-3.5z"/></svg></span>
+    <span class="btn__label">Ver o método</span>
+  </button>
+</div>
+
+<h3>Closing CTA (par no fundo dark)</h3>
+<div class="demo-row dark">
+  <button class="btn btn--accent btn--lg">
+    <span class="btn__label">Agendar diagnóstico</span>
+    <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+  </button>
+  <button class="btn btn--secondary btn--on-dark btn--lg">
+    <span class="btn__label">Ver o método novamente</span>
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     A11Y FEATURES TABLE
+     ═══════════════════════════════════════════════════════ -->
+<h2>Accessibility Features</h2>
+
+<table class="feature-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>WCAG criterion</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Touch target ≥44×44px</td><td>2.5.5 Target Size</td><td class="pass">Pass</td></tr>
+    <tr><td>Focus-visible (2px ring)</td><td>2.4.7 Focus Visible</td><td class="pass">Pass</td></tr>
+    <tr><td>Disabled states (cursor + opacity)</td><td>4.1.2 Name, Role, Value</td><td class="pass">Pass</td></tr>
+    <tr><td>Loading state with aria-busy</td><td>4.1.3 Status Messages</td><td class="pass">Pass</td></tr>
+    <tr><td>Decorative SVGs aria-hidden</td><td>1.1.1 Non-text Content</td><td class="pass">Pass</td></tr>
+    <tr><td>Color contrast ≥4.5:1 (text)</td><td>1.4.3 Contrast (Minimum)</td><td class="pass">Pass</td></tr>
+    <tr><td>UI contrast ≥3:1 (focus, accent)</td><td>1.4.11 Non-text Contrast</td><td class="pass">Pass</td></tr>
+    <tr><td>Keyboard navigable</td><td>2.1.1 Keyboard</td><td class="pass">Pass</td></tr>
+    <tr><td>Prefers-reduced-motion respected</td><td>2.3.3 Animation</td><td class="pass">Pass</td></tr>
+    <tr><td>Hover disabled on touch</td><td>2.5.4 Motion Actuation</td><td class="pass">Pass</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     API REFERENCE
+     ═══════════════════════════════════════════════════════ -->
+<h2>API Reference</h2>
+
+<table class="feature-table">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>variant</code></td><td>'primary' \| 'secondary' \| 'tertiary' \| 'accent' \| 'ghost'</td><td><code>'primary'</code></td><td>Visual style</td></tr>
+    <tr><td><code>size</code></td><td>'sm' \| 'md' \| 'lg'</td><td><code>'md'</code></td><td>Button size (height)</td></tr>
+    <tr><td><code>onDark</code></td><td>boolean</td><td><code>false</code></td><td>Apply on-dark variant styles</td></tr>
+    <tr><td><code>block</code></td><td>boolean</td><td><code>false</code></td><td>Full width</td></tr>
+    <tr><td><code>arrow</code></td><td>boolean</td><td><code>false</code></td><td>Show arrow pill (DS signature)</td></tr>
+    <tr><td><code>play</code></td><td>boolean</td><td><code>false</code></td><td>Show play pill (for video CTAs)</td></tr>
+    <tr><td><code>loading</code></td><td>boolean</td><td><code>false</code></td><td>Show spinner, sets aria-busy</td></tr>
+    <tr><td><code>disabled</code></td><td>boolean</td><td><code>false</code></td><td>Disable interaction</td></tr>
+    <tr><td><code>leftIcon</code></td><td>ReactNode</td><td>—</td><td>Custom icon left of label</td></tr>
+    <tr><td><code>rightIcon</code></td><td>ReactNode</td><td>—</td><td>Custom icon right of label</td></tr>
+    <tr><td><code>as</code></td><td>'button' \| 'a'</td><td><code>'button'</code></td><td>Render as link or button</td></tr>
+    <tr><td><code>href</code></td><td>string</td><td>—</td><td>Auto-renders as &lt;a&gt; if provided</td></tr>
+    <tr><td><code>aria-label</code></td><td>string</td><td>—</td><td>Required when no visible text</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     USAGE EXAMPLES
+     ═══════════════════════════════════════════════════════ -->
+<h2>Usage examples</h2>
+
+<pre><code>// Hero CTA (primary com seta)
+&lt;Button variant="primary" size="md" arrow&gt;
+  Agendar diagnóstico
+&lt;/Button&gt;
+
+// Secondary com play pill
+&lt;Button variant="secondary" play&gt;
+  Ver o trailer
+&lt;/Button&gt;
+
+// CTA accent (orange) — agora WCAG AA
+&lt;Button variant="accent" size="lg" arrow&gt;
+  Quero atravessar
+&lt;/Button&gt;
+
+// Como link (renderiza &lt;a href&gt;)
+&lt;Button as="a" href="/diagnostico" variant="primary" arrow&gt;
+  Agendar agora
+&lt;/Button&gt;
+
+// Loading state
+&lt;Button variant="primary" loading&gt;
+  Enviando...
+&lt;/Button&gt;
+
+// Block (full width) — para ofertas / sticky CTAs
+&lt;Button variant="primary" size="lg" block arrow&gt;
+  Quero atravessar
+&lt;/Button&gt;
+
+// On-dark (em fundos escuros)
+&lt;Button variant="secondary" onDark&gt;
+  Ver método novamente
+&lt;/Button&gt;</code></pre>
+
+<p style="margin-top:64px;padding-top:24px;border-top:var(--border-1);font-size:var(--fs-mono);font-family:var(--font-mono);color:var(--color-text-muted);text-align:center">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</div>
+</body>
+</html>

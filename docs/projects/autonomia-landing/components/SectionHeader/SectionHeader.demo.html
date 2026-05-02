@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>SectionHeader · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="../Typography/Typography.css">
+<link rel="stylesheet" href="../Button/Button.css">
+<link rel="stylesheet" href="./SectionHeader.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-12) var(--section-pad-x);
+    line-height: var(--lh-body);
+  }
+  .container { max-width: 1136px; margin: 0 auto; }
+  h2.section {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+  }
+  .demo {
+    padding: var(--space-10) var(--space-8);
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-8);
+  }
+  .demo--page-bg {
+    background: var(--color-bg-page);
+    border: var(--border-1);
+  }
+  .demo--surface-2 { background: var(--color-bg-surface-2); }
+  .demo--dark {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+  }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-4);
+    font-size: var(--fs-sm);
+  }
+  th, td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  th {
+    background: var(--color-bg-surface);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header style="margin-bottom: var(--space-12)">
+  <h1 class="typo-display">📑 SectionHeader <em>Molecule</em></h1>
+  <p class="typo-lede typo--tone-secondary" style="margin-top: var(--space-6)">
+    Padrão Eyebrow + Heading + Lede consolidado em 1 component. Aparece <strong>9 vezes</strong> na variation-a. 2 layouts × 3 alignments × 2 tones = 12 variants.
+  </p>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT: STACK (default)
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Layout: <code>stack</code> (default)</h2>
+<p class="section-meta">Vertical · eyebrow → title → description</p>
+
+<div class="demo">
+  <div class="section-header section-header--stack section-header--align-start section-header--tone-default">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">O método</span>
+      <h2 class="typo-heading typo-h2 typo--tone-default section-header__title">
+        Não é um curso. É uma <em>travessia</em>.
+      </h2>
+    </div>
+    <div class="section-header__support">
+      <p class="typo-lede typo--tone-secondary section-header__description">
+        A IA não é tendência. É infraestrutura. Líderes que atravessarem essa transformação como protagonistas vão moldar a próxima década.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT: SPLIT
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Layout: <code>split</code></h2>
+<p class="section-meta">Heading left, description right · stacks on mobile</p>
+
+<div class="demo">
+  <div class="section-header section-header--split section-header--align-start section-header--tone-default">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">A jornada</span>
+      <h2 class="typo-heading typo-h2 typo--tone-default section-header__title">
+        Cinco encontros.<br>
+        Uma <em>nova operação</em>.
+      </h2>
+    </div>
+    <div class="section-header__support">
+      <p class="typo-lede typo--tone-secondary section-header__description">
+        Cada encontro é uma estação de travessia. Começamos pelo diagnóstico do executivo e terminamos com um sistema próprio de liderança aumentada, pronto para rodar no seu negócio em ciclos contínuos.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ALIGN: CENTER
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Align: <code>center</code></h2>
+<p class="section-meta">Para abertura/fechamento de seções de destaque</p>
+
+<div class="demo">
+  <div class="section-header section-header--stack section-header--align-center section-header--tone-default">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">Antes de decidir</span>
+      <h2 class="typo-heading typo-h2 typo--tone-default section-header__title">
+        Perguntas <em>frequentes</em>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TONE: DARK
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Tone: <code>dark</code> + accent eyebrow</h2>
+<p class="section-meta">Closing CTA pattern · centered · dark background</p>
+
+<div class="demo demo--dark">
+  <div class="section-header section-header--stack section-header--align-center section-header--tone-dark">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-accent">Próximo passo</span>
+      <h2 class="typo-display typo--tone-on-dark section-header__title" style="max-width: 16ch">
+        Pronto para <em>orquestrar</em><br>
+        a próxima era?
+      </h2>
+    </div>
+    <div class="section-header__support">
+      <p class="typo-lede typo--tone-on-dark-soft section-header__description">
+        O diagnóstico é gratuito. A clareza, sua. A travessia, opcional.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     WITH ACTIONS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">With actions slot</h2>
+<p class="section-meta">CTA inline com a header (raro mas suportado)</p>
+
+<div class="demo">
+  <div class="section-header section-header--split section-header--align-start section-header--tone-default">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">Investimento</span>
+      <h2 class="typo-heading typo-h2 typo--tone-default section-header__title">
+        Uma decisão,<br>
+        <em>cinco encontros</em>.
+      </h2>
+    </div>
+    <div class="section-header__support">
+      <p class="typo-lede typo--tone-secondary section-header__description">
+        Programa completo · 1:1 com Igor Drews · 5 sessões de 90min · garantia 100%.
+      </p>
+      <div class="section-header__actions">
+        <a href="#diag" class="btn btn--primary btn--md">
+          <span class="btn__label">Agendar diagnóstico</span>
+          <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     WITHOUT DASH (eyebrow no dash)
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">withDash: <code>false</code></h2>
+<p class="section-meta">Eyebrow plain · usado em hero secondary, sub-headers</p>
+
+<div class="demo demo--page-bg">
+  <div class="section-header section-header--stack section-header--align-start section-header--tone-default">
+    <div class="section-header__lead">
+      <span class="typo-eyebrow typo--tone-secondary">Mentoria executiva · 2026</span>
+      <h2 class="typo-heading typo-h2 typo--tone-default section-header__title">
+        Para líderes que <em>conduzem</em> mudança.
+      </h2>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ALL 9 INSTANCES FROM VARIATION-A
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">📊 9 instances from variation-a — all replaceable</h2>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Section</th><th>Layout</th><th>Align</th><th>Tone</th><th>Eyebrow</th><th>Title</th><th>Has lede?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Hero</td><td>stack</td><td>start</td><td>default</td><td>"Mentoria executiva · 2026"</td><td>"Forme-se como o líder..."</td><td>✅</td></tr>
+    <tr><td>2</td><td>Promise (método)</td><td>split</td><td>start</td><td>default</td><td>"O método" + dash</td><td>"Não é um curso..."</td><td>✅</td></tr>
+    <tr><td>3</td><td>Instrutor</td><td>stack</td><td>start</td><td>default</td><td>"Quem conduz" + dash</td><td>"Trinta anos..."</td><td>—</td></tr>
+    <tr><td>4</td><td>Jornada</td><td>split</td><td>start</td><td>default</td><td>"A jornada" + dash</td><td>"Cinco encontros..."</td><td>✅</td></tr>
+    <tr><td>5</td><td>Diagnóstico</td><td>stack</td><td>start</td><td>default</td><td>"Passo zero · gratuito"</td><td>"Comece pelo diagnóstico"</td><td>✅</td></tr>
+    <tr><td>6</td><td>Prova</td><td>stack</td><td>start</td><td>default</td><td>"Por que agora" + dash</td><td>"A janela é curta..."</td><td>—</td></tr>
+    <tr><td>7</td><td>Oferta</td><td>stack</td><td>start</td><td>default</td><td>"Investimento" + dash</td><td>"Uma decisão..."</td><td>—</td></tr>
+    <tr><td>8</td><td>Fechamento</td><td>stack</td><td>center</td><td>dark</td><td>"Próximo passo" + dash + accent</td><td>"Pronto para orquestrar..."</td><td>✅</td></tr>
+    <tr><td>9</td><td>FAQ</td><td>stack</td><td>start</td><td>default</td><td>"Antes de decidir" + dash</td><td>"Perguntas frequentes"</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     USAGE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Usage</h2>
+
+<pre><code>// Standard section header (most common)
+&lt;SectionHeader
+  eyebrow="O método"
+  title={&lt;&gt;Não é um curso. É uma &lt;em&gt;travessia&lt;/em&gt;.&lt;/&gt;}
+  description="A IA não é tendência..."
+/&gt;
+
+// Split layout (heading + lede in 2 cols)
+&lt;SectionHeader
+  layout="split"
+  eyebrow="A jornada"
+  title={&lt;&gt;Cinco encontros. Uma &lt;em&gt;nova operação&lt;/em&gt;.&lt;/&gt;}
+  description="Cada encontro é uma estação..."
+/&gt;
+
+// Centered (FAQ header, intros)
+&lt;SectionHeader
+  align="center"
+  eyebrow="Antes de decidir"
+  title={&lt;&gt;Perguntas &lt;em&gt;frequentes&lt;/em&gt;&lt;/&gt;}
+/&gt;
+
+// Dark closing CTA
+&lt;SectionHeader
+  align="center"
+  tone="dark"
+  eyebrowTone="accent"
+  eyebrow="Próximo passo"
+  title={&lt;&gt;Pronto para &lt;em&gt;orquestrar&lt;/em&gt;?&lt;/&gt;}
+  description="O diagnóstico é gratuito."
+/&gt;
+
+// With CTA action
+&lt;SectionHeader
+  layout="split"
+  eyebrow="Investimento"
+  title="Uma decisão"
+  description="Programa completo..."
+  actions={&lt;Button variant="primary" arrow&gt;Agendar&lt;/Button&gt;}
+/&gt;
+
+// Without dash (sub-header style)
+&lt;SectionHeader
+  withDash={false}
+  eyebrow="Mentoria executiva · 2026"
+  title="Para líderes que conduzem mudança"
+/&gt;
+
+// Custom heading level (h3 instead of h2)
+&lt;SectionHeader
+  level={3}
+  eyebrow="Subseção"
+  title="Algo aninhado"
+/&gt;
+
+// With aria-labelledby (semantic section)
+&lt;section aria-labelledby="metodo"&gt;
+  &lt;SectionHeader
+    id="metodo"  // generates id="metodo-title"
+    eyebrow="O método"
+    title="Não é um curso..."
+  /&gt;
+  ...
+&lt;/section&gt;</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════
+     API
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">API Reference</h2>
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>eyebrow</code></td><td>string \| ReactNode</td><td>—</td><td>Top mono label</td></tr>
+    <tr><td><code>title</code></td><td>string \| ReactNode</td><td>—</td><td>Heading content</td></tr>
+    <tr><td><code>description</code></td><td>string \| ReactNode</td><td>—</td><td>Lede paragraph</td></tr>
+    <tr><td><code>layout</code></td><td>'stack' \| 'split'</td><td>'stack'</td><td>Stack vertically or split title/desc</td></tr>
+    <tr><td><code>align</code></td><td>'start' \| 'center' \| 'end'</td><td>'start'</td><td>Text alignment</td></tr>
+    <tr><td><code>tone</code></td><td>'default' \| 'dark'</td><td>'default'</td><td>Light or dark background</td></tr>
+    <tr><td><code>level</code></td><td>1 \| 2 \| 3 \| 4</td><td>2</td><td>Semantic heading level</td></tr>
+    <tr><td><code>visualSize</code></td><td>1 \| 2 \| 3 \| 4</td><td>=level</td><td>Override visual size only</td></tr>
+    <tr><td><code>withDash</code></td><td>boolean</td><td>true</td><td>Eyebrow has leading accent dash</td></tr>
+    <tr><td><code>eyebrowTone</code></td><td>tone</td><td>auto</td><td>Override eyebrow color</td></tr>
+    <tr><td><code>actions</code></td><td>ReactNode</td><td>—</td><td>CTAs next to header</td></tr>
+    <tr><td><code>id</code></td><td>string</td><td>—</td><td>Title gets <code>{id}-title</code></td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:var(--space-16);padding-top:var(--space-6);border-top:var(--border-1);font-size:var(--fs-mono);font-family:var(--font-mono);color:var(--color-text-muted);text-align:center">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</div>
+</body>
+</html>

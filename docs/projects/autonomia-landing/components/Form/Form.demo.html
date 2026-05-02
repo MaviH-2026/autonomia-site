@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Form · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="../Button/Button.css">
+<link rel="stylesheet" href="./Form.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-12);
+    line-height: var(--lh-body);
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    font-weight: 300;
+    letter-spacing: var(--ls-display);
+    margin-bottom: var(--space-3);
+  }
+  h1 em { color: var(--color-accent); font-style: italic; }
+  .subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-12);
+    font-size: var(--fs-lede);
+    max-width: 64ch;
+  }
+  h2.section {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+  .demo {
+    margin-bottom: var(--space-8);
+    padding: var(--space-8);
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-lg);
+  }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-4);
+    font-size: var(--fs-sm);
+  }
+  th, td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  th {
+    background: var(--color-bg-surface);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .demo-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .demo-row > * {
+    max-width: 480px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📝 Form <em>System</em></h1>
+<p class="subtitle">
+  7 atomic form components. WCAG 2.2 AA compliant. Native a11y (real labels, aria-describedby, aria-invalid). Auto-wired through FormField context — no manual id/aria juggling.
+</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     COMPLETE FORM EXAMPLE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Real example — Diagnóstico booking form</h2>
+
+<div class="demo">
+  <form style="display: flex; flex-direction: column; gap: var(--space-6); max-width: 480px">
+    <div class="field field--stack">
+      <label for="ex-name" class="field__label">
+        Nome completo <span class="field__required" aria-label="obrigatório">*</span>
+      </label>
+      <div class="field__control">
+        <div class="input input--md">
+          <input type="text" id="ex-name" class="input__control" required placeholder="Seu nome" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack">
+      <label for="ex-email" class="field__label">
+        Email <span class="field__required" aria-label="obrigatório">*</span>
+      </label>
+      <div class="field__control">
+        <div class="input input--md input--has-left">
+          <span class="input__slot input__slot--left" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v8H2z M2 4l6 4 6-4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <input type="email" id="ex-email" class="input__control" required placeholder="seu@email.com" aria-describedby="ex-email-helper" />
+        </div>
+      </div>
+      <p id="ex-email-helper" class="field__helper">Para enviar o link da videochamada</p>
+    </div>
+
+    <div class="field field--stack">
+      <label for="ex-role" class="field__label">
+        Cargo / função <span class="field__optional"> (opcional)</span>
+      </label>
+      <div class="field__control">
+        <div class="select select--md">
+          <select id="ex-role" class="select__control" defaultValue="">
+            <option value="" disabled>Selecione</option>
+            <option value="ceo">CEO / Founder</option>
+            <option value="cxo">VP / C-Level</option>
+            <option value="director">Diretor / Head</option>
+            <option value="manager">Gerente / Manager</option>
+            <option value="other">Outro</option>
+          </select>
+          <span class="select__chevron" aria-hidden="true">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack">
+      <label for="ex-msg" class="field__label">
+        Conta um pouco do seu contexto
+      </label>
+      <div class="field__control">
+        <div class="textarea">
+          <textarea id="ex-msg" class="textarea__control" rows="4" maxlength="500" placeholder="Estado atual do negócio, principais alavancas, onde a IA pode entrar..." aria-describedby="ex-msg-helper"></textarea>
+        </div>
+      </div>
+      <p id="ex-msg-helper" class="field__helper">Mínimo 50 caracteres · máximo 500</p>
+    </div>
+
+    <fieldset class="radio-group">
+      <legend class="radio-group__legend">Quando você prefere conversar?</legend>
+      <div class="radio-group__items radio-group__items--vertical">
+        <label class="radio">
+          <input type="radio" name="time" id="t-am" class="radio__input" />
+          <span class="radio__circle" aria-hidden="true"></span>
+          <span class="radio__label">Manhã (9h às 12h)</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="time" id="t-pm" class="radio__input" defaultChecked />
+          <span class="radio__circle" aria-hidden="true"></span>
+          <span class="radio__label">Tarde (14h às 18h)</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="time" id="t-flex" class="radio__input" />
+          <span class="radio__circle" aria-hidden="true"></span>
+          <span class="radio__label">Flexível — proponha</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="checkbox">
+      <input type="checkbox" id="ex-newsletter" class="checkbox__input" defaultChecked />
+      <span class="checkbox__box" aria-hidden="true">
+        <svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="checkbox__dash"></span>
+      </span>
+      <span class="checkbox__label">Receber newsletter editorial sobre IA aplicada</span>
+      <span class="checkbox__helper">Pode cancelar a qualquer momento.</span>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="ex-terms" class="checkbox__input" required />
+      <span class="checkbox__box" aria-hidden="true">
+        <svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="checkbox__dash"></span>
+      </span>
+      <span class="checkbox__label">
+        Aceito os termos de uso e política de privacidade
+        <span class="field__required" aria-label="obrigatório">*</span>
+      </span>
+    </label>
+
+    <button type="submit" class="btn btn--primary btn--md btn--block" style="margin-top: var(--space-3)">
+      <span class="btn__label">Agendar diagnóstico</span>
+      <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+    </button>
+  </form>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     INPUT VARIANTS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Input variants</h2>
+<p class="section-meta">All states · 2 sizes · with/without slots</p>
+
+<div class="demo">
+  <div class="demo-row">
+
+    <div class="field field--stack">
+      <label class="field__label">Default</label>
+      <div class="field__control">
+        <div class="input input--md">
+          <input type="text" class="input__control" placeholder="Placeholder" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack">
+      <label class="field__label">With left icon</label>
+      <div class="field__control">
+        <div class="input input--md input--has-left">
+          <span class="input__slot input__slot--left" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <input type="search" class="input__control" placeholder="Buscar..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack">
+      <label class="field__label">With right slot (currency)</label>
+      <div class="field__control">
+        <div class="input input--md input--has-right">
+          <input type="number" class="input__control" placeholder="0,00" />
+          <span class="input__slot input__slot--right" aria-hidden="true">BRL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack field--error">
+      <label class="field__label">Error state</label>
+      <div class="field__control">
+        <div class="input input--md">
+          <input type="email" class="input__control" defaultValue="invalid-email" aria-invalid="true" aria-describedby="ex-err-msg" />
+        </div>
+      </div>
+      <p id="ex-err-msg" class="field__error" role="alert">
+        <span class="field__error-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3M7 9.5v.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        Email inválido. Use o formato seu@email.com
+      </p>
+    </div>
+
+    <div class="field field--stack field--disabled">
+      <label class="field__label">Disabled</label>
+      <div class="field__control">
+        <div class="input input--md">
+          <input type="text" class="input__control" disabled defaultValue="Não editável" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--stack">
+      <label class="field__label">Small size</label>
+      <div class="field__control">
+        <div class="input input--sm">
+          <input type="text" class="input__control" placeholder="size=sm" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CHECKBOX & RADIO
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Checkbox & Radio</h2>
+
+<div class="demo">
+  <div class="demo-row">
+
+    <div>
+      <p class="section-meta" style="margin-bottom: var(--space-3)">Checkbox states</p>
+      <div style="display: flex; flex-direction: column; gap: var(--space-3)">
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" />
+          <span class="checkbox__box" aria-hidden="true"><svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2"/></svg></span>
+          <span class="checkbox__label">Unchecked</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" defaultChecked />
+          <span class="checkbox__box" aria-hidden="true"><svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2"/></svg></span>
+          <span class="checkbox__label">Checked</span>
+        </label>
+        <label class="checkbox" id="cb-indet-wrap">
+          <input type="checkbox" class="checkbox__input" />
+          <span class="checkbox__box" aria-hidden="true"><svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2"/></svg><span class="checkbox__dash"></span></span>
+          <span class="checkbox__label">Indeterminate</span>
+        </label>
+        <label class="checkbox checkbox--disabled">
+          <input type="checkbox" class="checkbox__input" disabled />
+          <span class="checkbox__box" aria-hidden="true"><svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2"/></svg></span>
+          <span class="checkbox__label">Disabled</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" defaultChecked />
+          <span class="checkbox__box" aria-hidden="true"><svg class="checkbox__check" width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 2" stroke="currentColor" stroke-width="2"/></svg></span>
+          <span class="checkbox__label">With helper text</span>
+          <span class="checkbox__helper">Texto auxiliar abaixo do label.</span>
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-meta" style="margin-bottom: var(--space-3)">Radio Group (vertical)</p>
+      <fieldset class="radio-group">
+        <legend class="radio-group__legend">Empresa / Setor</legend>
+        <div class="radio-group__items radio-group__items--vertical">
+          <label class="radio">
+            <input type="radio" name="setor" class="radio__input" defaultChecked />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Tecnologia</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="setor" class="radio__input" />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Serviços financeiros</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="setor" class="radio__input" />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Indústria</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="setor" class="radio__input" />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Outro</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div>
+      <p class="section-meta" style="margin-bottom: var(--space-3)">Radio Group (horizontal)</p>
+      <fieldset class="radio-group">
+        <legend class="radio-group__legend">Tamanho da empresa</legend>
+        <div class="radio-group__items radio-group__items--horizontal">
+          <label class="radio">
+            <input type="radio" name="size" class="radio__input" />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">PME</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="size" class="radio__input" defaultChecked />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Mid-market</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="size" class="radio__input" />
+            <span class="radio__circle" aria-hidden="true"></span>
+            <span class="radio__label">Enterprise</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     A11Y CHECKLIST
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Accessibility Compliance</h2>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>WCAG</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Real semantic inputs (no fake divs)</td><td>4.1.2</td><td>✅ Pass</td></tr>
+    <tr><td>Label associated via htmlFor</td><td>1.3.1, 3.3.2</td><td>✅ Pass (auto via FormField context)</td></tr>
+    <tr><td>aria-describedby for helper/error</td><td>1.3.1, 3.3.1</td><td>✅ Pass (auto-wired)</td></tr>
+    <tr><td>aria-invalid in error state</td><td>1.3.1</td><td>✅ Pass (auto from context)</td></tr>
+    <tr><td>role="alert" on error message</td><td>4.1.3</td><td>✅ Pass</td></tr>
+    <tr><td>Required indicator with aria-label</td><td>3.3.2</td><td>✅ Pass</td></tr>
+    <tr><td>Native select keyboard navigation</td><td>2.1.1</td><td>✅ Pass (no custom dropdown)</td></tr>
+    <tr><td>Touch targets ≥44px</td><td>2.5.5</td><td>✅ Pass (md size)</td></tr>
+    <tr><td>Focus-visible ring (2px + offset)</td><td>2.4.7</td><td>✅ Pass</td></tr>
+    <tr><td>Visible state changes (checked, focus, error)</td><td>1.4.11</td><td>✅ Pass</td></tr>
+    <tr><td>Color not sole indicator (icon + text + state)</td><td>1.4.1</td><td>✅ Pass</td></tr>
+    <tr><td>fieldset + legend for radio groups</td><td>1.3.1</td><td>✅ Pass</td></tr>
+    <tr><td>Disabled state preserves text contrast</td><td>1.4.3</td><td>✅ Pass</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     USAGE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Usage</h2>
+
+<pre><code>import { FormField, Input, Textarea, Select, Checkbox, Radio, RadioGroup } from './Form';
+
+// Simple input with label + helper
+&lt;FormField label="Email" helper="Para enviar o link" required&gt;
+  &lt;Input type="email" name="email" /&gt;
+&lt;/FormField&gt;
+
+// Input with error (auto-wires aria-invalid + aria-describedby)
+&lt;FormField label="Email" error="Email inválido"&gt;
+  &lt;Input type="email" defaultValue="abc" /&gt;
+&lt;/FormField&gt;
+
+// Input with icon slots
+&lt;FormField label="Buscar"&gt;
+  &lt;Input
+    type="search"
+    leftSlot={&lt;SearchIcon /&gt;}
+    placeholder="Digite para buscar..."
+  /&gt;
+&lt;/FormField&gt;
+
+// Currency input (right slot)
+&lt;FormField label="Valor"&gt;
+  &lt;Input type="number" rightSlot="BRL" /&gt;
+&lt;/FormField&gt;
+
+// Textarea with character count
+&lt;FormField label="Mensagem" helper="Min 50 chars"&gt;
+  &lt;Textarea rows={4} maxLength={500} showCount /&gt;
+&lt;/FormField&gt;
+
+// Auto-grow textarea
+&lt;FormField label="Mensagem"&gt;
+  &lt;Textarea autoGrow rows={2} /&gt;
+&lt;/FormField&gt;
+
+// Native select
+&lt;FormField label="Cargo"&gt;
+  &lt;Select
+    placeholder="Selecione"
+    options={[
+      { value: 'ceo', label: 'CEO / Founder' },
+      { value: 'vp', label: 'VP / C-Level' },
+      { value: 'manager', label: 'Manager' }
+    ]}
+  /&gt;
+&lt;/FormField&gt;
+
+// Or with children
+&lt;FormField label="Plano"&gt;
+  &lt;Select&gt;
+    &lt;option value=""&gt;Selecione&lt;/option&gt;
+    &lt;option value="pro"&gt;Pro&lt;/option&gt;
+    &lt;option value="business"&gt;Business&lt;/option&gt;
+  &lt;/Select&gt;
+&lt;/FormField&gt;
+
+// Standalone checkbox (own label, no FormField needed)
+&lt;Checkbox
+  label="Aceito os termos"
+  helper="Política de privacidade"
+  required
+/&gt;
+
+// Indeterminate checkbox (mixed state)
+&lt;Checkbox label="Selecionar todos" indeterminate /&gt;
+
+// Radio group
+&lt;RadioGroup label="Tamanho da empresa" name="size" required&gt;
+  &lt;Radio value="pme" label="PME" /&gt;
+  &lt;Radio value="mid" label="Mid-market" /&gt;
+  &lt;Radio value="ent" label="Enterprise" /&gt;
+&lt;/RadioGroup&gt;</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════
+     API
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">API Reference</h2>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Key Props</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>FormField</strong></td>
+      <td><code>label</code>, <code>helper</code>, <code>error</code>, <code>required</code>, <code>optional</code>, <code>disabled</code>, <code>layout</code> ('stack' | 'inline')</td>
+    </tr>
+    <tr>
+      <td><strong>Input</strong></td>
+      <td><code>type</code>, <code>size</code>, <code>leftSlot</code>, <code>rightSlot</code>, <code>placeholder</code> + standard input props</td>
+    </tr>
+    <tr>
+      <td><strong>Textarea</strong></td>
+      <td><code>size</code>, <code>rows</code>, <code>autoGrow</code>, <code>maxLength</code>, <code>showCount</code></td>
+    </tr>
+    <tr>
+      <td><strong>Select</strong></td>
+      <td><code>options</code> ({value, label}[]) OR <code>children</code> &lt;option&gt;, <code>placeholder</code>, <code>size</code></td>
+    </tr>
+    <tr>
+      <td><strong>Checkbox</strong></td>
+      <td><code>label</code>, <code>helper</code>, <code>indeterminate</code>, standard checkbox props</td>
+    </tr>
+    <tr>
+      <td><strong>Radio</strong></td>
+      <td><code>label</code>, <code>helper</code>, <code>value</code>, standard radio props</td>
+    </tr>
+    <tr>
+      <td><strong>RadioGroup</strong></td>
+      <td><code>label</code>, <code>helper</code>, <code>error</code>, <code>name</code>, <code>required</code>, <code>layout</code> ('vertical' | 'horizontal')</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="margin-top:64px;padding-top:24px;border-top:var(--border-1);font-size:var(--fs-mono);font-family:var(--font-mono);color:var(--color-text-muted);text-align:center">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</div>
+
+<!-- Set indeterminate state for demo -->
+<script>
+  const cb = document.querySelector('#cb-indet-wrap input');
+  if (cb) cb.indeterminate = true;
+</script>
+</body>
+</html>

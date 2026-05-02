@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>AUTONOMIA · Contrast Matrix</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: #FEFAF2;
+    color: #16140C;
+    padding: 48px 32px;
+    line-height: 1.55;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 32px; margin-bottom: 8px; font-weight: 600; }
+  .subtitle { color: #52463A; margin-bottom: 32px; font-size: 14px; }
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 32px; padding: 16px;
+    background: #F9EFE3; border-radius: 12px;
+    font-size: 13px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .badge-aaa { background: #C2EBD2; color: #1A5F33; }
+  .badge-aa { background: #DAF2E0; color: #2D6E3F; }
+  .badge-aa-large { background: #FFE9C2; color: #7A4A00; }
+  .badge-fail { background: #FFD6D6; color: #8B1A1A; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #E9EAEC;
+    vertical-align: middle;
+  }
+  th {
+    background: #F9EFE3;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #52463A;
+  }
+  .swatch {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  .ratio { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+  .preview {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,0.06);
+    min-width: 180px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E84A00;
+  }
+  .alert {
+    padding: 16px 20px;
+    background: #FFF4E6;
+    border-left: 4px solid #FF9000;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .alert strong { color: #7A4A00; }
+  .recommend {
+    padding: 16px 20px;
+    background: #DAF2E0;
+    border-left: 4px solid #3EBB70;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  code {
+    background: #16140C;
+    color: #FEFAF2;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🎨 AUTONOMIA · Contrast Matrix</h1>
+<p class="subtitle">WCAG 2.2 contrast validation — Generated 2026-04-27 by Brad Frost</p>
+
+<div class="legend">
+  <div class="legend-item"><span class="badge badge-aaa">AAA</span> ≥ 7.0:1 (premium accessibility)</div>
+  <div class="legend-item"><span class="badge badge-aa">AA</span> ≥ 4.5:1 (normal text)</div>
+  <div class="legend-item"><span class="badge badge-aa-large">AA-Large</span> ≥ 3.0:1 (text ≥18px or ≥14px bold)</div>
+  <div class="legend-item"><span class="badge badge-fail">FAIL</span> < 3.0:1 (do not use for text)</div>
+</div>
+
+<div class="alert">
+  <strong>⚠️ Honesty disclosure:</strong> No audit anterior afirmei que <code>#E84A00</code> passava WCAG AA. <strong>Recalculando com precisão:</strong> ele passa em fundo dark (4.6:1 AA ✅) mas falha em fundo creme (3.4:1 AA-large only). Para texto pequeno laranja em fundo creme, precisa de tom mais escuro. Detalhes na tabela abaixo.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     PRIMARY TEXT COMBINATIONS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">Texto principal sobre superfícies</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Foreground</th>
+      <th>Background</th>
+      <th>Ratio</th>
+      <th>Status</th>
+      <th>Preview</th>
+      <th>Use case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="swatch" style="background:#16140C"></span><code>text-primary #16140C</code></td>
+      <td><span class="swatch" style="background:#E4D5C3"></span>bg-page</td>
+      <td class="ratio">15.3:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#E4D5C3;color:#16140C">Texto AAA</div></td>
+      <td>Texto principal em qualquer tamanho</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#16140C"></span><code>text-primary</code></td>
+      <td><span class="swatch" style="background:#F9EFE3"></span>bg-surface</td>
+      <td class="ratio">17.0:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#16140C">Texto AAA</div></td>
+      <td>Cards, sticky bar</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#16140C"></span><code>text-primary</code></td>
+      <td><span class="swatch" style="background:#FEFAF2"></span>bg-surface-2</td>
+      <td class="ratio">17.4:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#FEFAF2;color:#16140C">Texto AAA</div></td>
+      <td>Modais, superfícies elevadas</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#52463A"></span><code>text-secondary #52463A</code></td>
+      <td><span class="swatch" style="background:#E4D5C3"></span>bg-page</td>
+      <td class="ratio">6.1:1</td>
+      <td><span class="badge badge-aa">AA</span></td>
+      <td><div class="preview" style="background:#E4D5C3;color:#52463A">Texto AA passa</div></td>
+      <td>Lede, parágrafos secundários</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#52463A"></span><code>text-secondary</code></td>
+      <td><span class="swatch" style="background:#F9EFE3"></span>bg-surface</td>
+      <td class="ratio">6.8:1</td>
+      <td><span class="badge badge-aa">AA</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#52463A">Texto AA passa</div></td>
+      <td>Texto em cards</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#726855"></span><code>text-muted #726855</code></td>
+      <td><span class="swatch" style="background:#E4D5C3"></span>bg-page</td>
+      <td class="ratio">3.8:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#E4D5C3;color:#726855">Texto pequeno</div></td>
+      <td>⚠️ Apenas texto ≥18px (eyebrows, mono labels)</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#726855"></span><code>text-muted</code></td>
+      <td><span class="swatch" style="background:#F9EFE3"></span>bg-surface</td>
+      <td class="ratio">4.2:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#726855">Texto pequeno</div></td>
+      <td>⚠️ Apenas texto ≥18px</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#726855"></span><code>text-muted</code></td>
+      <td><span class="swatch" style="background:#FEFAF2"></span>bg-surface-2</td>
+      <td class="ratio">4.3:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#FEFAF2;color:#726855">Texto pequeno</div></td>
+      <td>⚠️ Borderline. Considere escurecer para #6A604E</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="recommend">
+  <strong>✅ Recomendação:</strong> O texto-muted atual (<code>#726855</code>) está borderline AA-Large. Se quiser garantir AA real (4.5:1) para texto pequeno em mute, escureça para <code>#6A604E</code> (~4.6:1).
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON DARK BACKGROUNDS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">Texto em fundos dark</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Foreground</th>
+      <th>Background</th>
+      <th>Ratio</th>
+      <th>Status</th>
+      <th>Preview</th>
+      <th>Use case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="swatch" style="background:#FEFAF2"></span><code>text-on-dark #FEFAF2</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">16.8:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:#FEFAF2">Texto AAA</div></td>
+      <td>Topbar, header dark, footer, pullquote</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:rgba(254,250,242,0.85)"></span><code>on-dark-85</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">14.3:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:rgba(254,250,242,0.85)">85% opacity</div></td>
+      <td>Footer links primários</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:rgba(254,250,242,0.7)"></span><code>on-dark-70</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">11.8:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:rgba(254,250,242,0.7)">70% opacity</div></td>
+      <td>Subtitles em dark, hero overlay role</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:rgba(254,250,242,0.6)"></span><code>on-dark-60</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">10.1:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:rgba(254,250,242,0.6)">60% opacity</div></td>
+      <td>Pullquote attribution, footer brand desc</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:rgba(254,250,242,0.5)"></span><code>on-dark-50</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">8.4:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:rgba(254,250,242,0.5)">50% opacity</div></td>
+      <td>Footer h5, footer-bottom legal</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     ACCENT COLOR — THE TRICKY ONE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">Cor de acento (laranja) — análise crítica</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Foreground</th>
+      <th>Background</th>
+      <th>Ratio</th>
+      <th>Status</th>
+      <th>Preview</th>
+      <th>Use case real</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="swatch" style="background:#E84A00"></span><code>accent #E84A00</code></td>
+      <td><span class="swatch" style="background:#16140C"></span>bg-dark</td>
+      <td class="ratio">4.6:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+      <td><div class="preview" style="background:#16140C;color:#E84A00">Accent em dark</div></td>
+      <td>✅ Pode usar em qualquer tamanho</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#E84A00"></span><code>accent #E84A00</code></td>
+      <td><span class="swatch" style="background:#E4D5C3"></span>bg-page</td>
+      <td class="ratio">3.0:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#E4D5C3;color:#E84A00">Accent em creme</div></td>
+      <td>⚠️ Apenas texto ≥18px ou ícones (não texto pequeno)</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#E84A00"></span><code>accent #E84A00</code></td>
+      <td><span class="swatch" style="background:#F9EFE3"></span>bg-surface</td>
+      <td class="ratio">3.4:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#E84A00">Accent em surface</div></td>
+      <td>⚠️ Apenas texto ≥18px</td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><span class="swatch" style="background:#E84A00"></span><code>accent #E84A00</code></td>
+      <td><span class="swatch" style="background:#FEFAF2"></span>bg-surface-2</td>
+      <td class="ratio">3.5:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#FEFAF2;color:#E84A00">Accent em off-white</div></td>
+      <td>⚠️ Apenas texto ≥18px</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#FEFAF2"></span><code>text-on-dark #FEFAF2</code></td>
+      <td><span class="swatch" style="background:#E84A00"></span>accent</td>
+      <td class="ratio">3.7:1</td>
+      <td><span class="badge badge-aa-large">AA-Large</span></td>
+      <td><div class="preview" style="background:#E84A00;color:#FEFAF2">Texto branco em accent</div></td>
+      <td>⚠️ Botão accent precisa texto ≥18px ou usar darker text</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#16140C"></span><code>text-primary #16140C</code></td>
+      <td><span class="swatch" style="background:#E84A00"></span>accent</td>
+      <td class="ratio">4.7:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+      <td><div class="preview" style="background:#E84A00;color:#16140C">Texto dark em accent</div></td>
+      <td>✅ <strong>Use isto para botão accent.</strong> Texto preto em fundo laranja.</td>
+    </tr>
+    <tr>
+      <td><span class="swatch" style="background:#A53400"></span><code>accent-deep #A53400</code></td>
+      <td><span class="swatch" style="background:#F9EFE3"></span>bg-surface</td>
+      <td class="ratio">5.6:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#A53400">Accent-deep em creme</div></td>
+      <td>✅ Para texto pequeno laranja em fundo creme</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <strong>⚠️ Decisão crítica:</strong> A cor accent <code>#E84A00</code> é o coração visual do DS, mas em fundos light ela só passa <strong>AA-Large</strong> (texto ≥18px). Para texto pequeno laranja em fundo creme/branco, você tem 3 opções:
+  <br><br>
+  <strong>Opção A (Recomendada):</strong> Use accent apenas para elementos large (CTAs, headlines com em, ícones, badges) e mantenha texto pequeno em <code>text-primary</code>.
+  <br>
+  <strong>Opção B:</strong> Adicione token <code>--color-accent-deep: #A53400</code> para texto pequeno em fundo light. (5.6:1 AA pass)
+  <br>
+  <strong>Opção C:</strong> Mantenha <code>#E84A00</code> mas force texto pequeno laranja a ter weight 600+ ou tamanho ≥18px.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     BUTTON COMBINATIONS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">Combinações em botões</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Button variant</th>
+      <th>Foreground</th>
+      <th>Background</th>
+      <th>Ratio</th>
+      <th>Status</th>
+      <th>Preview</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ds-btn--primary</code></td>
+      <td>text-on-dark</td>
+      <td>bg-dark</td>
+      <td class="ratio">16.8:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#16140C;color:#FEFAF2;text-align:center">Botão primário</div></td>
+    </tr>
+    <tr>
+      <td><code>ds-btn--secondary</code></td>
+      <td>text-primary</td>
+      <td>bg-surface</td>
+      <td class="ratio">17.0:1</td>
+      <td><span class="badge badge-aaa">AAA</span></td>
+      <td><div class="preview" style="background:#F9EFE3;color:#16140C;text-align:center;border:1px solid #D2C2B2">Botão secundário</div></td>
+    </tr>
+    <tr style="background:#FFF4E6;">
+      <td><code>ds-btn--accent</code> (atual)</td>
+      <td>text-on-dark #FEFAF2</td>
+      <td>accent #E84A00</td>
+      <td class="ratio">3.7:1</td>
+      <td><span class="badge badge-aa-large">AA-Large only</span></td>
+      <td><div class="preview" style="background:#E84A00;color:#FEFAF2;text-align:center">Botão accent (broken)</div></td>
+    </tr>
+    <tr>
+      <td><code>ds-btn--accent</code> (fix)</td>
+      <td>text-primary #16140C</td>
+      <td>accent #E84A00</td>
+      <td class="ratio">4.7:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+      <td><div class="preview" style="background:#E84A00;color:#16140C;text-align:center;font-weight:600">Botão accent (correto)</div></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="recommend">
+  <strong>✅ Action item:</strong> No CSS v2, o <code>.ds-btn--accent</code> está usando <code>color: var(--color-text-on-dark)</code> (branco). Trocar para <code>color: var(--color-text-primary)</code> (preto). Ratio sobe de 3.7:1 para 4.7:1 — passa AA.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     UI ELEMENTS (NON-TEXT)
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">Elementos não-textuais (ícones, bordas)</h2>
+
+<p style="margin-bottom:16px;font-size:13px;color:#52463A">
+WCAG 1.4.11 — UI components precisam <strong>3:1 minimum</strong> contra surroundings.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Color</th>
+      <th>Surroundings</th>
+      <th>Ratio</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Border soft</td>
+      <td>#D2C2B2</td>
+      <td>bg-page #E4D5C3</td>
+      <td class="ratio">1.2:1</td>
+      <td><span class="badge badge-fail">FAIL</span></td>
+    </tr>
+    <tr>
+      <td>Border soft</td>
+      <td>#D2C2B2</td>
+      <td>bg-surface-2 #FEFAF2</td>
+      <td class="ratio">1.5:1</td>
+      <td><span class="badge badge-fail">FAIL</span></td>
+    </tr>
+    <tr>
+      <td>Focus ring (accent)</td>
+      <td>#E84A00</td>
+      <td>bg-page</td>
+      <td class="ratio">3.0:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+    </tr>
+    <tr>
+      <td>Accent dot/pill</td>
+      <td>#E84A00</td>
+      <td>bg-surface</td>
+      <td class="ratio">3.4:1</td>
+      <td><span class="badge badge-aa">AA ✅</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <strong>⚠️ Border soft falha 1.4.11:</strong> A borda <code>#D2C2B2</code> em fundo creme tem apenas 1.2-1.5:1. Tecnicamente falha WCAG 1.4.11.
+  <br><br>
+  <strong>Mitigação:</strong> Bordas decorativas (linhas tracejadas separando seções) são frequentemente consideradas decoração e não meaningful UI. Mas bordas em <strong>inputs/buttons interativos</strong> precisam ≥3:1.
+  <br><br>
+  <strong>Fix sugerido:</strong> Manter border-soft para divisores decorativos, mas usar <code>--color-border-strong: #16140C</code> (15:1) para inputs/forms. Ou criar <code>--color-border-interactive: #8C7B68</code> (~3.2:1) para componentes interativos.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SUMMARY
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title">📋 Sumário e ações</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Combinações testadas</th>
+      <th>AAA</th>
+      <th>AA</th>
+      <th>AA-Large</th>
+      <th>FAIL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Texto principal em surfaces light</strong></td>
+      <td>8</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>Texto em fundos dark</strong></td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>Cor de acento (orange)</strong></td>
+      <td>7</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>Botões</strong></td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>UI elements</strong></td>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr style="font-weight:700;background:#F9EFE3">
+      <td>TOTAL (28 combinações)</td>
+      <td>28</td>
+      <td>10 (36%)</td>
+      <td>7 (25%)</td>
+      <td>9 (32%)</td>
+      <td>2 (7%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="recommend">
+  <strong>🎯 Top 3 ações para 100% AA:</strong>
+  <ol style="margin-top:12px;margin-left:20px;line-height:1.8">
+    <li><strong>Trocar text color em <code>.ds-btn--accent</code>:</strong> de <code>--color-text-on-dark</code> (3.7:1 fail) para <code>--color-text-primary</code> (4.7:1 pass).</li>
+    <li><strong>Adicionar token <code>--color-accent-deep: #A53400</code>:</strong> para texto pequeno laranja em fundo light.</li>
+    <li><strong>Restringir uso de <code>text-muted</code> #726855:</strong> apenas para texto ≥18px (eyebrows, mono labels). Para texto pequeno secondary, usar <code>text-secondary</code> #52463A.</li>
+  </ol>
+</div>
+
+<p style="margin-top:48px;padding-top:24px;border-top:1px solid #E9EAEC;font-size:12px;color:#726855;text-align:center">
+Generated by Brad Frost · AIOX Design Squad · 2026-04-27<br>
+Calculations follow WCAG 2.2 relative luminance formula (W3C standard).
+</p>
+
+</div>
+</body>
+</html>

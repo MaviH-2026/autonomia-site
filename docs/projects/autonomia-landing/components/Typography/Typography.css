@@ -1,0 +1,252 @@
+/* ════════════════════════════════════════════════════════════════════
+   Typography Components · AUTONOMIA Design System
+   Requires: styles-tokens-v2.css
+
+   Components: Display · Heading · Lede · Body · Eyebrow · Quote · Mono
+   Tones:      default · secondary · muted · accent · on-dark · on-dark-soft
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   SHARED — TONES (apply to any typo-*)
+   ═══════════════════════════════════ */
+.typo--tone-default      { color: var(--color-text-primary); }
+.typo--tone-secondary    { color: var(--color-text-secondary); }
+.typo--tone-muted        { color: var(--color-text-muted); }
+.typo--tone-accent       { color: var(--color-accent); }
+.typo--tone-on-dark      { color: var(--color-text-on-dark); }
+.typo--tone-on-dark-soft { color: var(--on-dark-70); }
+
+/* Tone applies to em as well unless overridden */
+[class*="typo--tone-"] em {
+  color: inherit;
+}
+
+/* ═══════════════════════════════════
+   SHARED — TEXT BALANCE (modern)
+   ═══════════════════════════════════ */
+.typo--balance {
+  text-wrap: balance;
+}
+
+/* ═══════════════════════════════════
+   DISPLAY — Hero scale
+   ═══════════════════════════════════ */
+.typo-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  margin: 0;
+}
+.typo-display em {
+  font-style: italic;
+  font-weight: 300;
+  /* By default em on display gets the accent color */
+  color: var(--color-accent);
+}
+/* Override em color on dark */
+.typo-display.typo--tone-on-dark em {
+  color: var(--color-accent);
+}
+
+/* ═══════════════════════════════════
+   HEADING — H1-H4 visual scales
+   ═══════════════════════════════════ */
+.typo-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  margin: 0;
+}
+.typo-heading em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.typo-h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+}
+
+.typo-h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+}
+
+.typo-h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  font-weight: 400;
+}
+
+.typo-h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════
+   LEDE — Lead paragraph
+   ═══════════════════════════════════ */
+.typo-lede {
+  font-family: var(--font-body);
+  font-size: var(--fs-lede);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════
+   BODY — Default text
+   ═══════════════════════════════════ */
+.typo-body {
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  margin: 0;
+}
+.typo-body--md {
+  font-size: var(--fs-body);
+}
+.typo-body--sm {
+  font-size: var(--fs-sm);
+}
+
+/* When body is followed by another body (paragraphs), add spacing */
+.typo-body + .typo-body {
+  margin-top: var(--space-4);
+}
+
+/* ═══════════════════════════════════
+   EYEBROW — Mono uppercase label
+   ═══════════════════════════════════ */
+.typo-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Eyebrow with leading accent dash (replaces .a-section-tag pattern) */
+.typo-eyebrow--with-dash::before {
+  content: '';
+  display: inline-block;
+  width: var(--space-6);
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════
+   QUOTE — Blockquote for pull quotes
+   ═══════════════════════════════════ */
+.typo-quote {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  text-align: center;
+}
+
+.typo-quote__text {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  margin: 0;
+  text-wrap: balance;
+  max-width: 18ch;
+  margin-inline: auto;
+}
+.typo-quote__text em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.typo-quote__mark {
+  color: var(--color-accent);
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 0;
+  margin-right: var(--space-1);
+}
+
+.typo-quote__attr {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.typo-quote.typo--tone-on-dark .typo-quote__attr {
+  color: var(--on-dark-60);
+}
+
+/* Quote variant: inline (left-aligned, smaller, used in instructor section) */
+.typo-quote--inline {
+  text-align: left;
+  gap: var(--space-5);
+}
+.typo-quote--inline .typo-quote__text {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+  max-width: 56ch;
+  margin-inline: 0;
+}
+.typo-quote--inline .typo-quote__attr {
+  color: var(--color-text-secondary);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+}
+
+/* ═══════════════════════════════════
+   MONO — Inline monospace
+   ═══════════════════════════════════ */
+.typo-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  font-weight: 500;
+}
+
+.typo-mono--xs {
+  font-size: var(--fs-micro);
+}
+
+.typo-mono--upper {
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════
+   COMPOSITION HELPERS
+   ═══════════════════════════════════ */
+
+/* Stack: vertical rhythm between typography elements */
+.typo-stack {
+  display: flex;
+  flex-direction: column;
+}
+.typo-stack > * + * {
+  margin-top: var(--space-4);
+}
+.typo-stack > .typo-display + *,
+.typo-stack > .typo-h1 + *,
+.typo-stack > .typo-h2 + * {
+  margin-top: var(--space-6);
+}
+.typo-stack > .typo-eyebrow + * {
+  margin-top: var(--space-3);
+}

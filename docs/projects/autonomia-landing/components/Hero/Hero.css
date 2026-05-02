@@ -1,0 +1,204 @@
+/* ════════════════════════════════════════════════════════════════════
+   Hero Component (Organism) · AUTONOMIA Design System
+   Composes: Display + Lede + Button + media slot
+   Requires: styles-tokens-v2.css
+   Layouts: split · centered · stacked
+   Tones:   default · dark
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   ROOT
+   ═══════════════════════════════════ */
+.hero {
+  display: grid;
+  gap: var(--space-10);
+  padding: var(--space-12) var(--section-pad-x) var(--space-16);
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════
+   LAYOUT: SPLIT (default — content left, media right)
+   ═══════════════════════════════════ */
+.hero--split {
+  grid-template-columns: 1fr; /* mobile-first: stack */
+}
+
+@media (min-width: 1024px) {
+  .hero--split {
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--section-pad-x) var(--space-20);
+  }
+}
+
+/* ═══════════════════════════════════
+   LAYOUT: CENTERED (single column, centered)
+   ═══════════════════════════════════ */
+.hero--centered {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: var(--container-default);
+  padding-top: var(--section-pad-y-lg);
+  padding-bottom: var(--section-pad-y-lg);
+}
+
+.hero--centered .hero__body {
+  align-items: center;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+.hero--centered .hero__actions {
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════
+   LAYOUT: STACKED (content top, media below)
+   ═══════════════════════════════════ */
+.hero--stacked {
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+/* ═══════════════════════════════════
+   TONE: DARK
+   ═══════════════════════════════════ */
+.hero--tone-dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  max-width: none;
+  padding-left: var(--section-pad-x);
+  padding-right: var(--section-pad-x);
+}
+
+.hero--tone-dark.hero--split,
+.hero--tone-dark.hero--centered,
+.hero--tone-dark.hero--stacked {
+  /* Inner container width preserved via body */
+}
+
+.hero--tone-dark .hero__body {
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════
+   BODY (content column)
+   ═══════════════════════════════════ */
+.hero__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__body > * + * {
+  margin-top: var(--space-7);
+}
+
+.hero__body > .typo-eyebrow + * {
+  margin-top: var(--space-9);
+}
+
+/* ═══════════════════════════════════
+   ACTIONS (CTA group)
+   ═══════════════════════════════════ */
+.hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-9);
+}
+
+/* ═══════════════════════════════════
+   MEDIA (right column / below)
+   ═══════════════════════════════════ */
+.hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════
+   HERO PORTRAIT (common media pattern)
+   ═══════════════════════════════════ */
+.hero-portrait {
+  position: relative;
+  width: 100%;
+  background: var(--color-bg-dark);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.hero-portrait__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05) brightness(0.95) saturate(0.9);
+}
+
+/* Gradient overlay (bottom fade for caption legibility) */
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, var(--overlay-dark) 100%);
+  pointer-events: none;
+  z-index: var(--z-content);
+}
+
+/* Caption (name + role overlay) */
+.hero-portrait__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-8) var(--space-8) var(--space-7);
+  color: var(--color-text-on-dark);
+  z-index: calc(var(--z-content) + 1);
+}
+
+.hero-portrait__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  font-weight: 300;
+  letter-spacing: var(--ls-heading);
+  margin-bottom: var(--space-1);
+}
+
+.hero-portrait__role {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--on-dark-70);
+}
+
+/* Action button (typically play/trailer) */
+.hero-portrait__action {
+  position: absolute;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: var(--z-overlay);
+}
+
+/* On smaller portraits, scale down padding */
+@media (max-width: 640px) {
+  .hero-portrait__caption {
+    padding: var(--space-6) var(--space-6) var(--space-5);
+  }
+  .hero-portrait__name {
+    font-size: var(--fs-h4);
+  }
+  .hero-portrait__action {
+    bottom: var(--space-5);
+    right: var(--space-5);
+  }
+}
