@@ -1,0 +1,214 @@
+/* ════════════════════════════════════════════════════════════════════
+   Faq Component · AUTONOMIA Design System
+   WAI-ARIA 1.2 Accordion Pattern compliant
+   Requires: styles-tokens-v2.css
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   ROOT
+   ═══════════════════════════════════ */
+.faq {
+  border-top: var(--border-1);
+}
+
+/* ═══════════════════════════════════
+   ITEM
+   ═══════════════════════════════════ */
+.faq__item {
+  border-bottom: var(--border-1);
+}
+
+/* ═══════════════════════════════════
+   HEADING (semantic h2-h6)
+   ═══════════════════════════════════ */
+.faq__heading {
+  margin: 0;
+  font-weight: 400; /* default — overridden in trigger */
+}
+
+/* ═══════════════════════════════════
+   TRIGGER (button)
+   ═══════════════════════════════════ */
+.faq__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+
+  /* Reset button defaults */
+  appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+
+  /* Sizing — WCAG touch target */
+  padding: var(--space-7) 0;
+  min-height: 44px;
+
+  /* Typography (matches old .a-faq-q) */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.faq__trigger:hover {
+  color: var(--color-accent);
+}
+
+.faq__trigger:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* ═══════════════════════════════════
+   QUESTION TEXT
+   ═══════════════════════════════════ */
+.faq__question {
+  flex: 1;
+  text-wrap: balance;
+}
+
+/* ═══════════════════════════════════
+   INDICATOR (+ / -)
+   ═══════════════════════════════════ */
+.faq__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-surface-2);
+  border: var(--border-1);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.faq__item--open .faq__indicator,
+.faq__trigger[aria-expanded="true"] .faq__indicator {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-primary);
+  transform: rotate(180deg);
+}
+
+.faq__indicator svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ═══════════════════════════════════
+   PANEL
+   ═══════════════════════════════════ */
+.faq__panel {
+  overflow: hidden;
+}
+
+.faq__panel[hidden] {
+  display: none;
+}
+
+.faq__answer {
+  padding-bottom: var(--space-7);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--color-text-secondary);
+  max-width: 64ch;
+}
+
+.faq__answer > :not(:last-child) {
+  margin-bottom: var(--space-4);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: ON DARK
+   ═══════════════════════════════════ */
+.faq--on-dark {
+  border-top-color: var(--on-dark-20);
+}
+.faq--on-dark .faq__item {
+  border-bottom-color: var(--on-dark-20);
+}
+.faq--on-dark .faq__trigger {
+  color: var(--color-text-on-dark);
+}
+.faq--on-dark .faq__trigger:hover {
+  color: var(--color-accent);
+}
+.faq--on-dark .faq__indicator {
+  background: var(--on-dark-10);
+  border-color: var(--on-dark-20);
+  color: var(--color-text-on-dark);
+}
+.faq--on-dark .faq__answer {
+  color: var(--on-dark-70);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: BORDERED (cards style)
+   ═══════════════════════════════════ */
+.faq--bordered {
+  border: var(--border-1);
+  border-top-width: 1px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.faq--bordered .faq__item {
+  border-bottom: var(--border-1);
+}
+.faq--bordered .faq__item:last-child {
+  border-bottom: none;
+}
+.faq--bordered .faq__trigger,
+.faq--bordered .faq__answer {
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+/* ═══════════════════════════════════
+   PREFERS-REDUCED-MOTION
+   ═══════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .faq__trigger,
+  .faq__indicator {
+    transition: none;
+  }
+  .faq__item--open .faq__indicator {
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════════
+   SMALL VARIANT (denser list)
+   ═══════════════════════════════════ */
+.faq--sm .faq__trigger {
+  padding: var(--space-5) 0;
+  font-size: var(--fs-lede);
+}
+.faq--sm .faq__answer {
+  font-size: var(--fs-sm);
+  padding-bottom: var(--space-5);
+}
+.faq--sm .faq__indicator {
+  width: 24px;
+  height: 24px;
+}
+.faq--sm .faq__indicator svg {
+  width: 10px;
+  height: 10px;
+}

@@ -1,0 +1,134 @@
+/* ════════════════════════════════════════════════════════════════════
+   SectionHeader Component (Molecule) · AUTONOMIA Design System
+   Composes: Eyebrow + Heading + Lede in standard pattern
+   Requires: styles-tokens-v2.css + Typography.css
+
+   Layouts: stack · split
+   Aligns:  start · center · end
+   Tones:   default · dark
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   ROOT
+   ═══════════════════════════════════ */
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+/* ═══════════════════════════════════
+   LAYOUT: STACK (default — eyebrow + title + description vertical)
+   ═══════════════════════════════════ */
+.section-header--stack {
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.section-header--stack .section-header__lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.section-header--stack .section-header__support {
+  margin-top: var(--space-6);
+}
+
+/* ═══════════════════════════════════
+   LAYOUT: SPLIT (heading left, description right)
+   ═══════════════════════════════════ */
+.section-header--split {
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: end;
+}
+
+.section-header--split .section-header__lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 1024px) {
+  .section-header--split {
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-20);
+  }
+  .section-header--split .section-header__support {
+    margin-top: 0;
+  }
+}
+
+/* ═══════════════════════════════════
+   ALIGN
+   ═══════════════════════════════════ */
+.section-header--align-start { text-align: left; }
+
+.section-header--align-center {
+  text-align: center;
+}
+.section-header--align-center .section-header__lead {
+  align-items: center;
+}
+.section-header--align-center .section-header__support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-header--align-center .section-header__description {
+  margin-inline: auto;
+}
+
+.section-header--align-end {
+  text-align: right;
+}
+.section-header--align-end .section-header__lead {
+  align-items: flex-end;
+}
+
+/* ═══════════════════════════════════
+   TITLE — limit width for readability
+   ═══════════════════════════════════ */
+.section-header__title {
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.section-header--align-center .section-header__title {
+  margin-inline: auto;
+}
+
+/* ═══════════════════════════════════
+   DESCRIPTION
+   ═══════════════════════════════════ */
+.section-header__description {
+  max-width: 56ch;
+}
+
+/* ═══════════════════════════════════
+   ACTIONS (optional CTA next to header)
+   ═══════════════════════════════════ */
+.section-header__actions {
+  margin-top: var(--space-6);
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.section-header--align-center .section-header__actions {
+  justify-content: center;
+}
+
+.section-header--align-end .section-header__actions {
+  justify-content: flex-end;
+}
+
+/* ═══════════════════════════════════
+   TONE: DARK (just adjusts margins for dark sections)
+   Typography tones handled by component props
+   ═══════════════════════════════════ */
+.section-header--tone-dark {
+  /* Visual handled by typography tone props */
+}

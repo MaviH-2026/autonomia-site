@@ -1,0 +1,323 @@
+/* ════════════════════════════════════════════════════════════════════
+   Button Component · AUTONOMIA Design System
+   Requires: styles-tokens-v2.css
+
+   States covered:  default · hover · active · focus-visible · disabled · loading
+   Sizes:           sm (32px) · md (44px WCAG) · lg (56px)
+   Variants:        primary · secondary · tertiary · accent · ghost
+   Modifiers:       --on-dark · --block
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   BASE
+   ═══════════════════════════════════ */
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  white-space: nowrap;
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-align: center;
+
+  /* Reset */
+  border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Animation */
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+
+  /* Accessibility — touch target */
+  min-height: 44px;
+
+  /* Position context for spinner overlay */
+  position: relative;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Focus — uses global :focus-visible from tokens-v2 */
+.btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ═══════════════════════════════════
+   SIZES
+   ═══════════════════════════════════ */
+.btn--sm {
+  font-size: var(--fs-xs);          /* 13px */
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  min-height: 32px;
+  gap: var(--space-2);
+}
+
+.btn--md {
+  font-size: var(--fs-body);        /* 16px */
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+}
+
+.btn--lg {
+  font-size: var(--fs-lede);        /* 18px */
+  padding: var(--space-5) var(--space-8);
+  border-radius: var(--radius-md);
+  min-height: 56px;
+}
+
+/* When pill (arrow) is present, reduce right padding so pill flushes nicely */
+.btn:has(.btn__arrow),
+.btn:has(.btn__play) {
+  padding-right: var(--space-3);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: PRIMARY (dark filled)
+   ═══════════════════════════════════ */
+.btn--primary {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+.btn--primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-dark-elev);
+}
+.btn--primary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-text-primary); /* deepest primary press */
+}
+
+/* ═══════════════════════════════════
+   VARIANT: SECONDARY (light filled)
+   ═══════════════════════════════════ */
+.btn--secondary {
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+.btn--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-surface-2);
+  border-color: var(--color-text-primary);
+}
+.btn--secondary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-page);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: TERTIARY (outline)
+   ═══════════════════════════════════ */
+.btn--tertiary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-soft);
+}
+.btn--tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
+  border-color: var(--color-text-primary);
+  background: var(--color-bg-surface);
+}
+.btn--tertiary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-surface-2);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: ACCENT (orange filled)
+   WCAG AA: black text on orange = 4.7:1 ✅
+   ═══════════════════════════════════ */
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+}
+.btn--accent:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-accent-hover);
+}
+.btn--accent:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-accent-deep);
+}
+/* Accent's arrow pill inverts: dark bg, orange icon */
+.btn--accent .btn__arrow {
+  background: var(--color-bg-dark);
+  color: var(--color-accent);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: GHOST (text only, hover bg)
+   ═══════════════════════════════════ */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+.btn--ghost:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-surface);
+}
+.btn--ghost:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-bg-surface-2);
+}
+
+/* ═══════════════════════════════════
+   MODIFIER: ON-DARK
+   For variants on dark backgrounds
+   ═══════════════════════════════════ */
+.btn--on-dark.btn--secondary {
+  background: var(--on-dark-10);
+  color: var(--color-text-on-dark);
+  border-color: var(--on-dark-20);
+}
+.btn--on-dark.btn--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--on-dark-20);
+  border-color: var(--on-dark-50);
+}
+
+.btn--on-dark.btn--tertiary {
+  background: transparent;
+  color: var(--color-text-on-dark);
+  border-color: var(--on-dark-20);
+}
+.btn--on-dark.btn--tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
+  border-color: var(--color-text-on-dark);
+  background: var(--on-dark-10);
+}
+
+.btn--on-dark.btn--ghost {
+  color: var(--color-text-on-dark);
+}
+.btn--on-dark.btn--ghost:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--on-dark-10);
+}
+
+/* ═══════════════════════════════════
+   MODIFIER: BLOCK (full width)
+   ═══════════════════════════════════ */
+.btn--block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* ═══════════════════════════════════
+   SLOTS
+   ═══════════════════════════════════ */
+.btn__label {
+  /* enables truncation if needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.btn__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.btn__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.btn:hover:not(:disabled):not([aria-disabled="true"]) .btn__arrow {
+  transform: translateX(3px);
+}
+.btn__arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn--sm .btn__arrow {
+  width: 24px;
+  height: 24px;
+}
+.btn--sm .btn__arrow svg {
+  width: 12px;
+  height: 12px;
+}
+
+.btn--lg .btn__arrow {
+  width: 40px;
+  height: 40px;
+}
+.btn--lg .btn__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-dark);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.btn--on-dark .btn__play {
+  background: var(--color-text-on-dark);
+  color: var(--color-bg-dark);
+}
+
+/* ═══════════════════════════════════
+   STATE: LOADING
+   ═══════════════════════════════════ */
+.btn--loading .btn__label {
+  opacity: 0.7;
+}
+
+.btn__spinner {
+  display: inline-flex;
+  align-items: center;
+  animation: btn-spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn__spinner { animation: none; }
+  .btn { transition: none; }
+  .btn:active { transform: none; }
+}
+
+/* ═══════════════════════════════════
+   HOVER EFFECTS — disabled on touch
+   ═══════════════════════════════════ */
+@media (hover: none) {
+  .btn:hover { /* no hover state on touch */ }
+}

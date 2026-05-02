@@ -1,0 +1,310 @@
+/* ════════════════════════════════════════════════════════════════════
+   Card Component · AUTONOMIA Design System
+   Requires: styles-tokens-v2.css
+
+   Variants: default · numbered · stat · feature
+   Tones:    neutral · surface · elevated · dark
+   Modifiers: --accent-bar · --interactive
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   BASE
+   ═══════════════════════════════════ */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-text-primary);
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+
+  /* Reset for button/a roots */
+  cursor: default;
+}
+
+/* ═══════════════════════════════════
+   TONES
+   ═══════════════════════════════════ */
+.card--tone-neutral {
+  background: transparent;
+  /* Inherits page bg */
+}
+
+.card--tone-surface {
+  background: var(--color-bg-surface);
+}
+
+.card--tone-elevated {
+  background: var(--color-bg-surface-2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+}
+
+.card--tone-dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+/* ═══════════════════════════════════
+   MODIFIER: ACCENT BAR (top edge)
+   ═══════════════════════════════════ */
+.card--accent-bar {
+  overflow: hidden;
+}
+.card__accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-accent);
+}
+
+/* For dark tone: accent bar gradient */
+.card--tone-dark .card__accent-bar {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
+}
+
+/* ═══════════════════════════════════
+   MODIFIER: INTERACTIVE (button/link)
+   ═══════════════════════════════════ */
+.card--interactive {
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+.card--interactive:hover {
+  transform: translateY(-2px);
+}
+.card--interactive:active {
+  transform: translateY(0);
+}
+.card--interactive:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ═══════════════════════════════════
+   SHARED SLOTS
+   ═══════════════════════════════════ */
+.card__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  letter-spacing: var(--ls-mono-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+.card--tone-dark .card__eyebrow {
+  color: var(--color-accent);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: inherit;
+  text-wrap: balance;
+}
+.card__title em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.card__body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+}
+.card--tone-dark .card__body {
+  color: var(--on-dark-70);
+}
+
+.card__meta {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.card--tone-dark .card__meta {
+  color: var(--on-dark-50);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: NUMBERED (pillar, module)
+   ═══════════════════════════════════ */
+.card--numbered {
+  padding: var(--space-8) var(--space-6);
+}
+.card--numbered .card__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h4);
+  margin-bottom: var(--space-3);
+}
+.card--numbered .card__body {
+  font-size: var(--fs-sm);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: STAT
+   ═══════════════════════════════════ */
+.card--stat {
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+.card__stat {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: 1;
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+}
+.card__stat em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.card--stat .card__body {
+  font-size: var(--fs-sm);
+  max-width: 26ch;
+}
+.card__source {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ═══════════════════════════════════
+   VARIANT: FEATURE (icon + body)
+   ═══════════════════════════════════ */
+.card--feature {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: 0;
+  background: transparent;
+}
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.card__icon svg {
+  width: 14px;
+  height: 14px;
+}
+.card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.card__feature-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  color: var(--color-text-primary);
+  display: block;
+}
+.card--tone-dark .card__feature-title {
+  color: var(--color-text-on-dark);
+}
+.card--feature .card__body {
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════
+   VARIANT: DEFAULT (generic)
+   ═══════════════════════════════════ */
+.card--default {
+  /* uses base styling */
+}
+
+/* ═══════════════════════════════════
+   GRID HELPERS — for laying out cards
+   Use directly on grid container:
+   <div class="card-grid card-grid--3">...</div>
+   ═══════════════════════════════════ */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .card-grid--2,
+  .card-grid--3,
+  .card-grid--4,
+  .card-grid--5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .card-grid--5 { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Dashed dividers between cards (matches .a-pillars/a-modules layout) */
+.card-grid--divided {
+  gap: 0;
+  border-top: var(--border-dashed-1);
+}
+.card-grid--divided .card {
+  border-bottom: var(--border-dashed-1);
+}
+
+@media (min-width: 1024px) {
+  .card-grid--divided .card {
+    border-bottom: none;
+    border-right: var(--border-dashed-1);
+    padding-right: var(--space-6);
+  }
+  .card-grid--divided .card:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+  .card-grid--divided .card:not(:first-child) {
+    padding-left: var(--space-6);
+  }
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE — variant-specific
+   ═══════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .card--interactive { transition: none; }
+  .card--interactive:hover,
+  .card--interactive:active { transform: none; }
+}
+
+@media (hover: none) {
+  .card--interactive:hover { transform: none; }
+}
