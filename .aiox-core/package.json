@@ -48,8 +48,8 @@
   },
   "peerDependencies": {
     "@aiox-fullstack/memory": "^4.31.0",
-    "@aiox-fullstack/security": "^4.31.0",
     "@aiox-fullstack/performance": "^4.31.0",
+    "@aiox-fullstack/security": "^4.31.0",
     "@aiox-fullstack/telemetry": "^4.31.0"
   },
   "peerDependenciesMeta": {
@@ -103,5 +103,11 @@
     "./tasks": "./tasks/",
     "./docs": "./docs/",
     "./elicitation": "./elicitation/"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "eslint": "^10.3.0",
+    "jest": "^30.3.0",
+    "typescript": "^6.0.3"
   }
 }
