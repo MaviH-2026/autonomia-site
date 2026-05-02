@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Faq · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="./Faq.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-12);
+    line-height: var(--lh-body);
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    font-weight: 300;
+    letter-spacing: var(--ls-display);
+    margin-bottom: var(--space-3);
+  }
+  h1 em { color: var(--color-accent); font-style: italic; }
+  .subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-12);
+    font-size: var(--fs-lede);
+    max-width: 64ch;
+  }
+  h2.section {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+  .demo {
+    margin-bottom: var(--space-10);
+    padding: var(--space-8);
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-lg);
+  }
+  .demo--dark { background: var(--color-bg-dark); padding: var(--space-12); }
+  .demo--page-bg { background: var(--color-bg-page); border: var(--border-1); }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-4);
+    font-size: var(--fs-sm);
+  }
+  .feature-table th, .feature-table td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  .feature-table th {
+    background: var(--color-bg-surface);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .kbd {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--color-border-soft);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    background: var(--color-bg-surface-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>❓ Faq <em>Component</em></h1>
+<p class="subtitle">
+  Accordion seguindo <strong>WAI-ARIA 1.2 Accordion Pattern</strong>. Keyboard navigation completo (Arrow keys, Home/End). Single ou multi-open. 5 instâncias na landing → 1 component.
+</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     DEFAULT — Single open mode
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Default — Single open mode</h2>
+<p class="section-meta">Apenas 1 painel aberto por vez · primeiro item aberto por default</p>
+
+<div class="demo">
+  <div class="faq" role="region" aria-label="Perguntas frequentes default">
+    <div class="faq__item faq__item--open">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="true" aria-controls="d1-p1" id="d1-h1" type="button">
+          <span class="faq__question">Para quem é a mentoria?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d1-p1" role="region" aria-labelledby="d1-h1" class="faq__panel">
+        <div class="faq__answer">Executivos e líderes que conduzem operações reais e querem traduzir IA em alavancas para o seu negócio, não em curiosidade. Se você toma decisões que afetam P&L, time ou estratégia, faz sentido.</div>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d1-p2" id="d1-h2" type="button">
+          <span class="faq__question">Como funciona o diagnóstico?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d1-p2" role="region" aria-labelledby="d1-h2" class="faq__panel" hidden>
+        <div class="faq__answer">Uma conversa de 30 minutos onde mapeamos seu estado atual, suas alavancas reais e se faz sentido seguirmos juntos.</div>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d1-p3" id="d1-h3" type="button">
+          <span class="faq__question">Por que cinco encontros e não um curso longo?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d1-p3" role="region" aria-labelledby="d1-h3" class="faq__panel" hidden>
+        <div class="faq__answer">Porque você não precisa de mais conteúdo. Precisa de tradução, foco e implementação.</div>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d1-p4" id="d1-h4" type="button">
+          <span class="faq__question">E a garantia de 100%?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d1-p4" role="region" aria-labelledby="d1-h4" class="faq__panel" hidden>
+        <div class="faq__answer">Se ao final dos cinco encontros os resultados combinados no diagnóstico não acontecerem, devolvo 100% do investimento. Risco zero do seu lado.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON DARK
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Variant: <code>on-dark</code></h2>
+<p class="section-meta">Para FAQ em seções escuras</p>
+
+<div class="demo demo--dark">
+  <div class="faq faq--on-dark" role="region" aria-label="FAQ on dark">
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d2-p1" id="d2-h1" type="button">
+          <span class="faq__question">Posso parcelar o investimento?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d2-p1" role="region" aria-labelledby="d2-h1" class="faq__panel" hidden>
+        <div class="faq__answer">Sim, em até 6x sem juros via cartão de crédito.</div>
+      </div>
+    </div>
+    <div class="faq__item faq__item--open">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="true" aria-controls="d2-p2" id="d2-h2" type="button">
+          <span class="faq__question">Os encontros são gravados?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d2-p2" role="region" aria-labelledby="d2-h2" class="faq__panel">
+        <div class="faq__answer">Sim. Você recebe acesso permanente às gravações para revisar quando quiser.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     BORDERED CARDS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Variant: <code>bordered</code></h2>
+<p class="section-meta">FAQ como card único com borda</p>
+
+<div class="demo demo--page-bg">
+  <div class="faq faq--bordered" role="region" aria-label="FAQ bordered" style="background: var(--color-bg-surface-2)">
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d3-p1" id="d3-h1" type="button">
+          <span class="faq__question">Quanto tempo dura cada encontro?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d3-p1" role="region" aria-labelledby="d3-h1" class="faq__panel" hidden>
+        <div class="faq__answer">90 minutos por encontro, com material editorial e exercícios entre sessões.</div>
+      </div>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d3-p2" id="d3-h2" type="button">
+          <span class="faq__question">Os encontros são online ou presenciais?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h3>
+      <div id="d3-p2" role="region" aria-labelledby="d3-h2" class="faq__panel" hidden>
+        <div class="faq__answer">Online via Zoom. Presencial mediante consulta para clientes em São Paulo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SMALL VARIANT
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Variant: <code>--sm</code> (denser)</h2>
+<p class="section-meta">Para múltiplos FAQs em página única ou sidebar</p>
+
+<div class="demo">
+  <div class="faq faq--sm" role="region" aria-label="FAQ compact">
+    <div class="faq__item">
+      <h4 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d4-p1" id="d4-h1" type="button">
+          <span class="faq__question">Quem mais já fez a mentoria?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h4>
+      <div id="d4-p1" role="region" aria-labelledby="d4-h1" class="faq__panel" hidden>
+        <div class="faq__answer">CEOs e VPs de empresas em transição digital. Lista privada por NDA.</div>
+      </div>
+    </div>
+    <div class="faq__item">
+      <h4 class="faq__heading">
+        <button class="faq__trigger" aria-expanded="false" aria-controls="d4-p2" id="d4-h2" type="button">
+          <span class="faq__question">Posso conversar com ex-alunos?</span>
+          <span class="faq__indicator" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </span>
+        </button>
+      </h4>
+      <div id="d4-p2" role="region" aria-labelledby="d4-h2" class="faq__panel" hidden>
+        <div class="faq__answer">Sim, após o diagnóstico podemos coordenar.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     KEYBOARD NAVIGATION
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">⌨️ Keyboard Navigation</h2>
+<p class="section-meta">WAI-ARIA 1.2 Accordion Pattern · navegue acima com teclado</p>
+
+<table class="feature-table">
+  <thead>
+    <tr><th>Key</th><th>Action</th><th>WAI-ARIA Pattern</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="kbd">Tab</span></td><td>Move focus to next focusable element</td><td>Standard</td></tr>
+    <tr><td><span class="kbd">Enter</span> / <span class="kbd">Space</span></td><td>Toggle current panel</td><td>✅ Pattern</td></tr>
+    <tr><td><span class="kbd">↓</span> Arrow Down</td><td>Focus next header (wraps)</td><td>✅ Recommended</td></tr>
+    <tr><td><span class="kbd">↑</span> Arrow Up</td><td>Focus previous header (wraps)</td><td>✅ Recommended</td></tr>
+    <tr><td><span class="kbd">Home</span></td><td>Focus first header</td><td>✅ Recommended</td></tr>
+    <tr><td><span class="kbd">End</span></td><td>Focus last header</td><td>✅ Recommended</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     ARIA STRUCTURE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">ARIA Structure</h2>
+
+<pre><code>&lt;div role="region" aria-label="Perguntas frequentes"&gt;
+  &lt;div&gt;
+    &lt;h3&gt;
+      &lt;button
+        aria-expanded="true|false"
+        aria-controls="panel-id"
+        id="header-id"
+      &gt;
+        Question text
+        &lt;span aria-hidden="true"&gt;icon&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div
+      id="panel-id"
+      role="region"
+      aria-labelledby="header-id"
+      hidden={!isOpen}
+    &gt;
+      Answer content
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════
+     USAGE EXAMPLES
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Usage</h2>
+
+<pre><code>// Composable API (children)
+&lt;Faq defaultOpen={0}&gt;
+  &lt;Faq.Item question="Para quem é a mentoria?"&gt;
+    Executivos e líderes que conduzem operações reais...
+  &lt;/Faq.Item&gt;
+  &lt;Faq.Item question="Como funciona o diagnóstico?"&gt;
+    Uma conversa de 30 minutos onde mapeamos...
+  &lt;/Faq.Item&gt;
+&lt;/Faq&gt;
+
+// Data-driven API (items prop)
+&lt;Faq items={faqs} defaultOpen={0} /&gt;
+
+// Multiple panels open simultaneously
+&lt;Faq multiple defaultOpen={[0, 2]} /&gt;
+
+// On dark background
+&lt;Faq className="faq--on-dark" /&gt;
+
+// Bordered card style
+&lt;Faq className="faq--bordered" /&gt;
+
+// Compact density
+&lt;Faq className="faq--sm" /&gt;
+
+// Custom heading level (default h3)
+&lt;Faq headingLevel={2} /&gt;
+
+// Controlled mode (with onChange)
+&lt;Faq
+  items={faqs}
+  defaultOpen={null}
+  onChange={(openIndices) =&gt; console.log(openIndices)}
+/&gt;</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════
+     A11Y CHECKLIST
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Accessibility Compliance</h2>
+
+<table class="feature-table">
+  <thead>
+    <tr><th>Criterion</th><th>WCAG</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Heading semantic structure</td><td>1.3.1</td><td>✅ Pass (h2-h6 configurable)</td></tr>
+    <tr><td>aria-expanded reflects state</td><td>4.1.2</td><td>✅ Pass</td></tr>
+    <tr><td>aria-controls links panel</td><td>4.1.2</td><td>✅ Pass</td></tr>
+    <tr><td>Panel role="region" + aria-labelledby</td><td>1.3.1</td><td>✅ Pass</td></tr>
+    <tr><td>Decorative icons aria-hidden</td><td>1.1.1</td><td>✅ Pass</td></tr>
+    <tr><td>Keyboard navigable (Enter/Space)</td><td>2.1.1</td><td>✅ Pass</td></tr>
+    <tr><td>Arrow key navigation</td><td>2.1.1 (recommended)</td><td>✅ Pass</td></tr>
+    <tr><td>Home/End shortcuts</td><td>2.1.1 (recommended)</td><td>✅ Pass</td></tr>
+    <tr><td>Focus-visible indicator</td><td>2.4.7</td><td>✅ Pass</td></tr>
+    <tr><td>Touch target ≥44px</td><td>2.5.5</td><td>✅ Pass</td></tr>
+    <tr><td>Color contrast on text</td><td>1.4.3</td><td>✅ Pass (AAA)</td></tr>
+    <tr><td>Indicator contrast (UI)</td><td>1.4.11</td><td>✅ Pass</td></tr>
+    <tr><td>Reduced motion respected</td><td>2.3.3</td><td>✅ Pass</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     API REFERENCE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">API Reference</h2>
+
+<h3 style="margin-top: var(--space-8); font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono-wide); text-transform: uppercase; color: var(--color-text-secondary)">Faq props</h3>
+
+<table class="feature-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>items</code></td><td>{q, a}[]</td><td>—</td><td>Data-driven items array</td></tr>
+    <tr><td><code>children</code></td><td>&lt;Faq.Item&gt;...</td><td>—</td><td>Compositional API (alternative to items)</td></tr>
+    <tr><td><code>defaultOpen</code></td><td>number \| number[] \| null</td><td><code>0</code></td><td>Initially-open index(es)</td></tr>
+    <tr><td><code>multiple</code></td><td>boolean</td><td><code>false</code></td><td>Allow multiple panels open</td></tr>
+    <tr><td><code>onChange</code></td><td>(openIndices) =&gt; void</td><td>—</td><td>Called on toggle</td></tr>
+    <tr><td><code>headingLevel</code></td><td>2 \| 3 \| 4 \| 5 \| 6</td><td><code>3</code></td><td>Semantic heading tag for triggers</td></tr>
+    <tr><td><code>aria-label</code></td><td>string</td><td><code>'Perguntas frequentes'</code></td><td>Region label</td></tr>
+    <tr><td><code>className</code></td><td>string</td><td>—</td><td>Add modifiers like <code>--on-dark</code></td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top: var(--space-8); font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono-wide); text-transform: uppercase; color: var(--color-text-secondary)">Faq.Item props</h3>
+
+<table class="feature-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>question</code></td><td>string \| ReactNode</td><td>Question text (visible)</td></tr>
+    <tr><td><code>children</code></td><td>ReactNode</td><td>Answer content</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top: var(--space-8); font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono-wide); text-transform: uppercase; color: var(--color-text-secondary)">CSS Modifiers</h3>
+
+<table class="feature-table">
+  <thead>
+    <tr><th>Class</th><th>Effect</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>.faq--on-dark</code></td><td>For dark backgrounds (footer, hero)</td></tr>
+    <tr><td><code>.faq--bordered</code></td><td>Card-style with full border</td></tr>
+    <tr><td><code>.faq--sm</code></td><td>Compact density (denser padding, smaller text)</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:64px;padding-top:24px;border-top:var(--border-1);font-size:var(--fs-mono);font-family:var(--font-mono);color:var(--color-text-muted);text-align:center">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</div>
+
+<!-- Demo keyboard interactivity (vanilla JS) -->
+<script>
+document.querySelectorAll('.faq').forEach(faq => {
+  const triggers = faq.querySelectorAll('.faq__trigger');
+
+  triggers.forEach((trigger, i) => {
+    // Toggle on click
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      const item = trigger.closest('.faq__item');
+      const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+
+      // Close other items (single-open mode)
+      triggers.forEach(t => {
+        if (t !== trigger) {
+          t.setAttribute('aria-expanded', 'false');
+          t.closest('.faq__item').classList.remove('faq__item--open');
+          const p = document.getElementById(t.getAttribute('aria-controls'));
+          if (p) p.hidden = true;
+          // Update icon
+          const ind = t.querySelector('.faq__indicator svg path');
+          if (ind) ind.setAttribute('d', 'M7 2v10M2 7h10');
+        }
+      });
+
+      // Toggle current
+      const newState = !isOpen;
+      trigger.setAttribute('aria-expanded', newState);
+      item.classList.toggle('faq__item--open', newState);
+      if (panel) panel.hidden = !newState;
+      const ind = trigger.querySelector('.faq__indicator svg path');
+      if (ind) ind.setAttribute('d', newState ? 'M2 7h10' : 'M7 2v10M2 7h10');
+    });
+
+    // Keyboard navigation
+    trigger.addEventListener('keydown', (e) => {
+      let next = null;
+      switch (e.key) {
+        case 'ArrowDown': next = (i + 1) % triggers.length; break;
+        case 'ArrowUp':   next = (i - 1 + triggers.length) % triggers.length; break;
+        case 'Home':      next = 0; break;
+        case 'End':       next = triggers.length - 1; break;
+        default: return;
+      }
+      e.preventDefault();
+      triggers[next].focus();
+    });
+  });
+});
+</script>
+</body>
+</html>

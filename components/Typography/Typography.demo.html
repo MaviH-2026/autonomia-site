@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Typography · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="./Typography.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-12);
+    line-height: var(--lh-body);
+  }
+  .container { max-width: 1136px; margin: 0 auto; }
+  .demo {
+    margin-bottom: var(--space-10);
+    padding: var(--space-8);
+    background: var(--color-bg-elevated, var(--color-bg-surface-2));
+    border-radius: var(--radius-lg);
+  }
+  .demo--dark {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+  }
+  .demo--surface { background: var(--color-bg-surface); }
+  .demo-row {
+    display: flex;
+    gap: var(--space-8);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: var(--border-dashed-1);
+  }
+  .demo-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .demo-row__meta {
+    flex-shrink: 0;
+    width: 180px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .demo-row__content { flex: 1; min-width: 0; }
+  .demo-row__token {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    margin-top: var(--space-2);
+  }
+  h2.section {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-4);
+    font-size: var(--fs-sm);
+  }
+  th, td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  th {
+    background: var(--color-bg-surface);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header style="margin-bottom: var(--space-16)">
+  <span class="typo-eyebrow typo--tone-secondary" style="margin-bottom: var(--space-4); display: inline-flex">Typography System</span>
+  <h1 class="typo-display typo--tone-default">
+    The <em>type</em> system.
+  </h1>
+  <p class="typo-lede typo--tone-secondary" style="margin-top: var(--space-6)">
+    7 atomic typography components que compõem 100% das necessidades de texto da landing. Decoupling entre semantic level (h1-h4) e visual size permite hierarquia flexível.
+  </p>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     TYPE SCALE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Type Scale (Fluid)</h2>
+<p class="section-meta">Todos os tamanhos usam <code>clamp()</code> · escalam suavemente em mobile</p>
+
+<div class="demo">
+  <div class="demo-row">
+    <div class="demo-row__meta">Display
+      <span class="demo-row__token">--fs-display<br>clamp(48px, 9vw, 84px)</span>
+    </div>
+    <div class="demo-row__content">
+      <h1 class="typo-display">
+        Forme-se como o <em>líder orquestrador</em>.
+      </h1>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">H1
+      <span class="demo-row__token">--fs-h1<br>clamp(40px, 7vw, 64px)</span>
+    </div>
+    <div class="demo-row__content">
+      <h1 class="typo-heading typo-h1">
+        Cinco <em>encontros</em>. Uma nova era.
+      </h1>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">H2
+      <span class="demo-row__token">--fs-h2<br>clamp(32px, 5vw, 44px)</span>
+    </div>
+    <div class="demo-row__content">
+      <h2 class="typo-heading typo-h2">
+        Não é um curso. É uma <em>travessia</em>.
+      </h2>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">H3
+      <span class="demo-row__token">--fs-h3<br>clamp(22px, 3vw, 32px)</span>
+    </div>
+    <div class="demo-row__content">
+      <h3 class="typo-heading typo-h3">
+        Domínio <em>aplicado</em>
+      </h3>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">H4
+      <span class="demo-row__token">--fs-h4<br>clamp(18px, 2.2vw, 22px)</span>
+    </div>
+    <div class="demo-row__content">
+      <h4 class="typo-heading typo-h4">
+        Diagnóstico estratégico
+      </h4>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">Lede
+      <span class="demo-row__token">--fs-lede<br>clamp(16px, 1.8vw, 18px)</span>
+    </div>
+    <div class="demo-row__content">
+      <p class="typo-lede typo--tone-secondary">
+        Não é um curso. É uma travessia. Cinco encontros 1:1 para você sair capaz de orquestrar times híbridos de humanos e IA.
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">Body
+      <span class="demo-row__token">--fs-body<br>clamp(15px, 1.5vw, 16px)</span>
+    </div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-secondary">
+        IA como ferramenta operacional, não conceito. Você aprende a usar, integrar e supervisionar agentes que produzem valor real.
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">Body SM
+      <span class="demo-row__token">--fs-sm = 14px</span>
+    </div>
+    <div class="demo-row__content">
+      <p class="typo-body typo-body--sm typo--tone-secondary">
+        Texto pequeno para metadados, capítulos secundários ou descrições compactas em cards.
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">Eyebrow
+      <span class="demo-row__token">--fs-eyebrow = 12px</span>
+    </div>
+    <div class="demo-row__content">
+      <span class="typo-eyebrow typo--tone-secondary">Mentoria executiva · 2026</span>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">Mono
+      <span class="demo-row__token">--fs-mono = 11px</span>
+    </div>
+    <div class="demo-row__content">
+      <span class="typo-mono typo--tone-muted">autonomiadigital.ia.br · 60 min · gratuito</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TONES
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Tones</h2>
+<p class="section-meta">6 tones disponíveis · aplicáveis a qualquer typo-* component</p>
+
+<div class="demo">
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>tone="default"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-default">Texto principal. AAA contrast (15.3:1) em fundos light.</p>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>tone="secondary"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-secondary">Texto secundário. AA contrast (6.1:1). Para parágrafos descritivos.</p>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>tone="muted"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-muted">Texto sutil. AA-Large only (3.8:1). Apenas para texto ≥18px ou eyebrows.</p>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>tone="accent"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-accent">Texto de acento. AA-Large em fundo light, AA em dark. Para labels com numeração.</p>
+    </div>
+  </div>
+</div>
+
+<div class="demo demo--dark">
+  <div class="demo-row" style="border-color: var(--on-dark-20)">
+    <div class="demo-row__meta" style="color: var(--on-dark-60)"><code style="background: var(--on-dark-10); border-color: var(--on-dark-20); color: var(--color-text-on-dark)">tone="on-dark"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-on-dark">Texto em fundo escuro. AAA contrast (16.8:1).</p>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta" style="color: var(--on-dark-60)"><code style="background: var(--on-dark-10); border-color: var(--on-dark-20); color: var(--color-text-on-dark)">tone="on-dark-soft"</code></div>
+    <div class="demo-row__content">
+      <p class="typo-body typo--tone-on-dark-soft">Texto secundário em fundo escuro. AAA (11.8:1). 70% opacity.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     EYEBROW VARIANTS
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Eyebrow variants</h2>
+
+<div class="demo">
+  <div class="demo-row">
+    <div class="demo-row__meta">Default</div>
+    <div class="demo-row__content">
+      <span class="typo-eyebrow typo--tone-secondary">Mentoria executiva · 2026</span>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>tone="accent"</code></div>
+    <div class="demo-row__content">
+      <span class="typo-eyebrow typo--tone-accent">01 · Tecnologia</span>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta"><code>withDash</code></div>
+    <div class="demo-row__content">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">O método</span>
+    </div>
+  </div>
+  <div class="demo-row">
+    <div class="demo-row__meta">withDash + accent</div>
+    <div class="demo-row__content">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-accent">Próximo passo</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     QUOTE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Quote variants</h2>
+
+<div class="demo demo--dark" style="text-align: center; padding: var(--space-16)">
+  <figure class="typo-quote typo--tone-on-dark">
+    <blockquote class="typo-quote__text">
+      A tecnologia não é a estrela do show.<br>
+      Quem <em>conduz</em> é.
+    </blockquote>
+    <figcaption class="typo-quote__attr">Igor Drews · Estrategista de IA</figcaption>
+  </figure>
+</div>
+
+<div class="demo demo--surface">
+  <figure class="typo-quote typo-quote--inline">
+    <blockquote class="typo-quote__text">
+      <span class="typo-quote__mark" aria-hidden="true">"</span>
+      Há mais de três décadas eu vivo dentro das ondas de transformação. A IA é a maior delas.
+    </blockquote>
+    <figcaption class="typo-quote__attr">— Igor Drews</figcaption>
+  </figure>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     COMPOSITION
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Composition (Section Header pattern)</h2>
+<p class="section-meta">Eyebrow + Heading + Lede stack — substitui <code>.a-section-tag</code> + <code>.a-section-title</code></p>
+
+<div class="demo">
+  <div class="typo-stack">
+    <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">O método</span>
+    <h2 class="typo-heading typo-h2">
+      Não é um curso. É uma <em>travessia</em>.
+    </h2>
+    <p class="typo-lede typo--tone-secondary">
+      A IA não é tendência. É infraestrutura. Líderes que atravessarem essa transformação como protagonistas vão moldar a próxima década dos seus mercados.
+    </p>
+  </div>
+</div>
+
+<div class="demo demo--dark">
+  <div class="typo-stack">
+    <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-accent">Próximo passo</span>
+    <h2 class="typo-display typo--tone-on-dark">
+      Pronto para <em>orquestrar</em> a próxima era?
+    </h2>
+    <p class="typo-lede typo--tone-on-dark-soft">
+      O diagnóstico é gratuito. A clareza, sua. A travessia, opcional.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEMANTIC vs VISUAL
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Semantic vs Visual decoupling</h2>
+<p class="section-meta">Use <code>level</code> para semântica HTML · use <code>visualSize</code> para tamanho visual</p>
+
+<div class="demo">
+  <h3 style="margin-bottom: var(--space-4); font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono); text-transform: uppercase; color: var(--color-text-secondary)">Same heading, different visual size</h3>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">level=2 visualSize=1<br>(visual H1, semantic h2)</div>
+    <div class="demo-row__content">
+      <h2 class="typo-heading typo-h1">Comece pelo <em>diagnóstico</em>.</h2>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">level=2 (default)<br>(visual H2, semantic h2)</div>
+    <div class="demo-row__content">
+      <h2 class="typo-heading typo-h2">Comece pelo <em>diagnóstico</em>.</h2>
+    </div>
+  </div>
+
+  <div class="demo-row">
+    <div class="demo-row__meta">level=2 visualSize=3<br>(visual H3, semantic h2)</div>
+    <div class="demo-row__content">
+      <h2 class="typo-heading typo-h3">Comece pelo <em>diagnóstico</em>.</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     USAGE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Usage</h2>
+
+<pre><code>// Hero display
+&lt;Display&gt;
+  Forme-se como o &lt;em&gt;líder orquestrador&lt;/em&gt; da era da IA.
+&lt;/Display&gt;
+
+// Section heading (semantic h2, visual H2)
+&lt;Heading level={2}&gt;
+  Não é um curso. É uma &lt;em&gt;travessia&lt;/em&gt;.
+&lt;/Heading&gt;
+
+// Semantic h2 styled as h3 (avoid heading skip)
+&lt;Heading level={2} visualSize={3}&gt;
+  Subseção
+&lt;/Heading&gt;
+
+// Lede paragraph
+&lt;Lede&gt;
+  Cinco encontros 1:1 para você sair capaz de orquestrar...
+&lt;/Lede&gt;
+
+// Body text
+&lt;Body&gt;Texto principal&lt;/Body&gt;
+&lt;Body tone="secondary"&gt;Texto secundário&lt;/Body&gt;
+&lt;Body size="sm" tone="muted"&gt;Texto pequeno e sutil&lt;/Body&gt;
+
+// Eyebrow
+&lt;Eyebrow&gt;Mentoria executiva · 2026&lt;/Eyebrow&gt;
+&lt;Eyebrow tone="accent"&gt;01 · Tecnologia&lt;/Eyebrow&gt;
+&lt;Eyebrow withDash&gt;O método&lt;/Eyebrow&gt;
+
+// Quote (pull quote)
+&lt;Quote attribution="Igor Drews · Estrategista de IA" tone="on-dark"&gt;
+  A tecnologia não é a estrela do show. Quem &lt;em&gt;conduz&lt;/em&gt; é.
+&lt;/Quote&gt;
+
+// Mono inline (URL, date, code)
+&lt;Mono&gt;autonomiadigital.ia.br&lt;/Mono&gt;
+&lt;Mono tone="accent"&gt;ABRIL 2026&lt;/Mono&gt;
+
+// Section header composition (replaces a-section-tag pattern)
+&lt;div className="typo-stack"&gt;
+  &lt;Eyebrow withDash&gt;O método&lt;/Eyebrow&gt;
+  &lt;Heading level={2}&gt;Não é um curso. É uma &lt;em&gt;travessia&lt;/em&gt;.&lt;/Heading&gt;
+  &lt;Lede&gt;A IA não é tendência. É infraestrutura...&lt;/Lede&gt;
+&lt;/div&gt;</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════
+     API REFERENCE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">API Reference</h2>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Props</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="3"><strong>Display</strong></td><td>tone</td><td>'default'</td><td>Tone modifier</td></tr>
+    <tr><td>as</td><td>'h1'</td><td>Override semantic tag</td></tr>
+    <tr><td>balance</td><td>true</td><td>Apply text-wrap: balance</td></tr>
+
+    <tr><td rowspan="5"><strong>Heading</strong></td><td>level</td><td>2</td><td>Semantic h1-h6 + visual size by default</td></tr>
+    <tr><td>as</td><td>—</td><td>Override semantic tag</td></tr>
+    <tr><td>visualSize</td><td>=level</td><td>Override visual size only</td></tr>
+    <tr><td>tone</td><td>'default'</td><td>Tone modifier</td></tr>
+    <tr><td>balance</td><td>true</td><td>Apply text-wrap: balance</td></tr>
+
+    <tr><td rowspan="2"><strong>Lede</strong></td><td>tone</td><td>'secondary'</td><td>Tone modifier</td></tr>
+    <tr><td>as</td><td>'p'</td><td>Override tag</td></tr>
+
+    <tr><td rowspan="3"><strong>Body</strong></td><td>tone</td><td>'default'</td><td>Tone modifier</td></tr>
+    <tr><td>size</td><td>'md'</td><td>'sm' or 'md'</td></tr>
+    <tr><td>as</td><td>'p'</td><td>Override tag</td></tr>
+
+    <tr><td rowspan="3"><strong>Eyebrow</strong></td><td>tone</td><td>'secondary'</td><td>Tone modifier</td></tr>
+    <tr><td>withDash</td><td>false</td><td>Prepend accent dash</td></tr>
+    <tr><td>as</td><td>'span'</td><td>Override tag</td></tr>
+
+    <tr><td rowspan="3"><strong>Quote</strong></td><td>attribution</td><td>—</td><td>String/ReactNode for figcaption</td></tr>
+    <tr><td>showMark</td><td>false</td><td>Show "" mark prefix</td></tr>
+    <tr><td>tone</td><td>'default'</td><td>Tone modifier</td></tr>
+
+    <tr><td rowspan="2"><strong>Mono</strong></td><td>tone</td><td>'muted'</td><td>Tone modifier</td></tr>
+    <tr><td>as</td><td>'span'</td><td>Override tag</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     TONE MATRIX
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Tone × Background WCAG Matrix</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tone</th>
+      <th>Color</th>
+      <th>On bg-page</th>
+      <th>On bg-surface</th>
+      <th>On bg-dark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>default</code></td>
+      <td>#16140C</td>
+      <td>15.3:1 ✅ AAA</td>
+      <td>17.0:1 ✅ AAA</td>
+      <td>1:1 ❌ Don't use</td>
+    </tr>
+    <tr>
+      <td><code>secondary</code></td>
+      <td>#52463A</td>
+      <td>6.1:1 ✅ AA</td>
+      <td>6.8:1 ✅ AA</td>
+      <td>2.5:1 ❌ Don't use</td>
+    </tr>
+    <tr>
+      <td><code>muted</code></td>
+      <td>#726855</td>
+      <td>3.8:1 ⚠️ AA-Large</td>
+      <td>4.2:1 ⚠️ AA-Large</td>
+      <td>1.8:1 ❌ Don't use</td>
+    </tr>
+    <tr>
+      <td><code>accent</code></td>
+      <td>#E84A00</td>
+      <td>3.0:1 ⚠️ AA-Large</td>
+      <td>3.4:1 ⚠️ AA-Large</td>
+      <td>4.6:1 ✅ AA</td>
+    </tr>
+    <tr>
+      <td><code>on-dark</code></td>
+      <td>#FEFAF2</td>
+      <td>1:1 ❌ Don't use</td>
+      <td>1:1 ❌ Don't use</td>
+      <td>16.8:1 ✅ AAA</td>
+    </tr>
+    <tr>
+      <td><code>on-dark-soft</code></td>
+      <td>rgba(254,250,242,0.7)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>11.8:1 ✅ AAA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="margin-top:64px;padding-top:24px;border-top:var(--border-1);font-size:var(--fs-mono);font-family:var(--font-mono);color:var(--color-text-muted);text-align:center">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</div>
+</body>
+</html>

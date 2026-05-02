@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Hero · AUTONOMIA Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../site/styles-tokens-v2.css">
+<link rel="stylesheet" href="../Typography/Typography.css">
+<link rel="stylesheet" href="../Button/Button.css">
+<link rel="stylesheet" href="./Hero.css">
+<style>
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    line-height: var(--lh-body);
+  }
+  .demo-frame {
+    margin: var(--space-12) auto;
+    max-width: 1280px;
+    border: var(--border-1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .demo-frame--full {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    max-width: none;
+  }
+  .demo-tag {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+  }
+  .demo-tag .badge {
+    padding: 2px 8px;
+    background: var(--color-accent);
+    color: var(--color-text-primary);
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--section-pad-x);
+  }
+  .intro {
+    margin-bottom: var(--space-12);
+  }
+  h2.section {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    font-weight: 300;
+    letter-spacing: var(--ls-display);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-3);
+    padding: 0 var(--section-pad-x);
+  }
+  h2.section em { color: var(--color-accent); font-style: italic; }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: var(--ls-mono-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding: 0 var(--section-pad-x);
+    margin-bottom: var(--space-6);
+  }
+  pre {
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+    margin: var(--space-4) 0 var(--space-12);
+  }
+  pre code { background: transparent; border: none; color: inherit; padding: 0; }
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--color-bg-surface-2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: var(--border-1);
+  }
+  table {
+    width: calc(100% - 2 * var(--section-pad-x));
+    margin: var(--space-4) var(--section-pad-x);
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+  }
+  th, td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-1);
+  }
+  th {
+    background: var(--color-bg-surface);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="intro">
+    <h1 class="typo-display">🦸 Hero <em>Organism</em></h1>
+    <p class="typo-lede typo--tone-secondary" style="margin-top: var(--space-6)">
+      First organism: composes Display + Lede + Buttons + media slot. 3 layouts × 2 tones × 2 API styles (props OR composition). Replaces <code>.a-hero</code> markup.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT: SPLIT (default — content + media)
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Layout: <code>split</code> (default)</h2>
+<p class="section-meta">Content left, media right · stacks on mobile</p>
+
+<div class="demo-frame">
+  <div class="demo-tag">
+    <span class="badge">SPLIT</span>
+    Hero with portrait media
+  </div>
+
+  <header class="hero hero--split hero--tone-default">
+    <div class="hero__body">
+      <span class="typo-eyebrow typo--tone-secondary">Mentoria executiva · 2026</span>
+      <h1 class="typo-display typo--tone-default">
+        Forme-se como o<br>
+        <em>líder orquestrador</em><br>
+        da era da IA.
+      </h1>
+      <p class="typo-lede typo--tone-secondary">
+        Não é um curso. É uma travessia. Cinco encontros 1:1 para você sair capaz de orquestrar times híbridos de humanos e IA, gerando alavancas reais de crescimento no seu negócio.
+      </p>
+      <div class="hero__actions">
+        <a href="#diag" class="btn btn--primary btn--md">
+          <span class="btn__label">Agendar diagnóstico gratuito</span>
+          <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+        </a>
+        <a href="#metodo" class="btn btn--secondary btn--md">
+          <span class="btn__play"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M2 1.5v7l6-3.5z"/></svg></span>
+          <span class="btn__label">Ver o método</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero-portrait" style="aspect-ratio: 4/5">
+        <img src="../../site/igor-stage.png" alt="Igor Drews em sessão de mentoria executiva" class="hero-portrait__img" />
+        <div class="hero-portrait__caption">
+          <div class="hero-portrait__name">Igor Drews</div>
+          <div class="hero-portrait__role">Estrategista de IA · Mentor</div>
+        </div>
+        <div class="hero-portrait__action">
+          <button class="btn btn--secondary btn--md" aria-label="Assistir trailer da mentoria, duração 2 minutos e 14 segundos">
+            <span class="btn__play"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M2 1.5v7l6-3.5z"/></svg></span>
+            <span class="btn__label">Trailer · 2:14</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT: CENTERED
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Layout: <code>centered</code></h2>
+<p class="section-meta">Single column, max 56ch · for landing page intros sem media</p>
+
+<div class="demo-frame">
+  <div class="demo-tag">
+    <span class="badge">CENTERED</span>
+    Hero without media
+  </div>
+
+  <header class="hero hero--centered hero--tone-default">
+    <div class="hero__body">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-secondary">Próximo passo</span>
+      <h1 class="typo-display typo--tone-default">
+        Comece pelo<br>
+        <em>diagnóstico</em>.
+      </h1>
+      <p class="typo-lede typo--tone-secondary">
+        60 minutos com Igor Drews para mapear seu estado atual, alavancas reais e se faz sentido seguirmos juntos. Sem pressão, sem compromisso.
+      </p>
+      <div class="hero__actions">
+        <a href="#diag" class="btn btn--primary btn--lg">
+          <span class="btn__label">Agendar agora</span>
+          <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TONE: DARK
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Tone: <code>dark</code> (centered)</h2>
+<p class="section-meta">Closing CTA pattern · accent color CTA + on-dark secondary</p>
+
+<div class="demo-frame demo-frame--full">
+  <header class="hero hero--centered hero--tone-dark" style="padding-top: var(--space-20); padding-bottom: var(--space-20);">
+    <div class="hero__body">
+      <span class="typo-eyebrow typo-eyebrow--with-dash typo--tone-accent">Próximo passo</span>
+      <h1 class="typo-display typo--tone-on-dark">
+        Pronto para <em>orquestrar</em><br>
+        a próxima era?
+      </h1>
+      <p class="typo-lede typo--tone-on-dark-soft">
+        O diagnóstico é gratuito. A clareza, sua. A travessia, opcional. Comece pelo passo zero.
+      </p>
+      <div class="hero__actions">
+        <a href="/diagnostico" class="btn btn--accent btn--lg">
+          <span class="btn__label">Agendar diagnóstico</span>
+          <span class="btn__arrow ds-arrow-pill--on-accent"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+        </a>
+        <a href="#metodo" class="btn btn--secondary btn--on-dark btn--lg">
+          <span class="btn__label">Ver o método novamente</span>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT: STACKED
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Layout: <code>stacked</code></h2>
+<p class="section-meta">Content top, full-width media below · for product pages, case studies</p>
+
+<div class="demo-frame">
+  <div class="demo-tag">
+    <span class="badge">STACKED</span>
+    Content + full-width media
+  </div>
+
+  <header class="hero hero--stacked hero--tone-default">
+    <div class="hero__body" style="max-width: 64ch;">
+      <span class="typo-eyebrow typo--tone-secondary">Case study · Maio 2026</span>
+      <h1 class="typo-display typo--tone-default">
+        Como uma fintech<br>
+        cortou <em>40%</em> do tempo de decisão.
+      </h1>
+      <p class="typo-lede typo--tone-secondary">
+        Cinco encontros, três decisões executivas, um sistema próprio rodando 24/7. A história completa de uma travessia bem-sucedida.
+      </p>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary btn--md">
+          <span class="btn__label">Ler case completo</span>
+          <span class="btn__arrow"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROP-DRIVEN VS COMPOSITION
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Two API styles</h2>
+
+<div class="container">
+
+<h3 style="font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono-wide); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-3)">
+  1. Prop-driven (concise — for standard heros)
+</h3>
+
+<pre><code>&lt;Hero
+  layout="split"
+  eyebrow="Mentoria executiva · 2026"
+  title={&lt;&gt;
+    Forme-se como o&lt;br /&gt;
+    &lt;em&gt;líder orquestrador&lt;/em&gt;&lt;br /&gt;
+    da era da IA.
+  &lt;/&gt;}
+  description="Não é um curso. É uma travessia..."
+  primaryAction={{
+    label: 'Agendar diagnóstico gratuito',
+    href: '#diag',
+    arrow: true
+  }}
+  secondaryAction={{
+    label: 'Ver o método',
+    href: '#metodo',
+    play: true
+  }}
+  media={
+    &lt;HeroPortrait
+      src="igor-stage.png"
+      alt="Igor Drews em sessão"
+      caption={{ name: 'Igor Drews', role: 'Estrategista de IA · Mentor' }}
+      action={{
+        label: 'Trailer · 2:14',
+        play: true,
+        ariaLabel: 'Assistir trailer, 2 minutos e 14 segundos'
+      }}
+    /&gt;
+  }
+/&gt;</code></pre>
+
+<h3 style="font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--ls-mono-wide); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-3); margin-top: var(--space-12)">
+  2. Composition (children — for custom layouts)
+</h3>
+
+<pre><code>&lt;Hero layout="split" tone="dark"&gt;
+  &lt;Hero.Body&gt;
+    &lt;Eyebrow tone="on-dark-soft"&gt;
+      Mentoria executiva · 2026
+    &lt;/Eyebrow&gt;
+    &lt;Display tone="on-dark"&gt;
+      Forme-se como o &lt;em&gt;líder orquestrador&lt;/em&gt;
+    &lt;/Display&gt;
+    &lt;Lede tone="on-dark-soft"&gt;
+      Não é um curso...
+    &lt;/Lede&gt;
+    &lt;Hero.Actions&gt;
+      &lt;Button variant="accent" arrow&gt;Agendar&lt;/Button&gt;
+      &lt;Button variant="secondary" onDark&gt;Ver método&lt;/Button&gt;
+    &lt;/Hero.Actions&gt;
+  &lt;/Hero.Body&gt;
+  &lt;Hero.Media&gt;
+    &lt;HeroPortrait
+      src="igor.png"
+      alt="..."
+      caption={{ name: 'Igor', role: 'Mentor' }}
+    /&gt;
+  &lt;/Hero.Media&gt;
+&lt;/Hero&gt;</code></pre>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     API REFERENCE
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">API Reference</h2>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="9"><strong>Hero</strong></td><td>layout</td><td>'split' \| 'centered' \| 'stacked'</td><td>'split'</td><td>Layout pattern</td></tr>
+    <tr><td>tone</td><td>'default' \| 'dark'</td><td>'default'</td><td>Background tone</td></tr>
+    <tr><td>eyebrow</td><td>string \| ReactNode</td><td>—</td><td>Top label</td></tr>
+    <tr><td>title</td><td>string \| ReactNode</td><td>—</td><td>Display heading</td></tr>
+    <tr><td>description</td><td>string \| ReactNode</td><td>—</td><td>Lede paragraph</td></tr>
+    <tr><td>primaryAction</td><td>object \| ReactNode</td><td>—</td><td>{label, href, ...} or Button</td></tr>
+    <tr><td>secondaryAction</td><td>object \| ReactNode</td><td>—</td><td>Same shape as primary</td></tr>
+    <tr><td>media</td><td>ReactNode</td><td>—</td><td>Right-side media slot</td></tr>
+    <tr><td>as</td><td>string</td><td>'header'</td><td>Override semantic tag</td></tr>
+
+    <tr><td colspan="5" style="background: var(--color-bg-surface); font-weight: 600">Hero sub-components</td></tr>
+    <tr><td><strong>Hero.Body</strong></td><td>—</td><td>—</td><td>—</td><td>Wraps content (replaces auto-render)</td></tr>
+    <tr><td><strong>Hero.Actions</strong></td><td>—</td><td>—</td><td>—</td><td>CTA flex container</td></tr>
+    <tr><td><strong>Hero.Media</strong></td><td>—</td><td>—</td><td>—</td><td>Media column</td></tr>
+
+    <tr><td colspan="5" style="background: var(--color-bg-surface); font-weight: 600">HeroPortrait (media pattern)</td></tr>
+    <tr><td rowspan="5"><strong>HeroPortrait</strong></td><td>src</td><td>string</td><td>—</td><td>Image URL</td></tr>
+    <tr><td>alt</td><td>string</td><td>—</td><td>Image alt (required for a11y)</td></tr>
+    <tr><td>caption</td><td>{name, role}</td><td>—</td><td>Bottom overlay caption</td></tr>
+    <tr><td>action</td><td>object \| ReactNode</td><td>—</td><td>Bottom-right action button</td></tr>
+    <tr><td>aspectRatio</td><td>string</td><td>'4/5'</td><td>CSS aspect-ratio value</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════
+     A11Y
+     ═══════════════════════════════════════════════════════ -->
+<h2 class="section">Accessibility</h2>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>WCAG</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Single &lt;h1&gt; per page (Display renders h1 by default)</td><td>1.3.1</td><td>✅</td></tr>
+    <tr><td>Real &lt;header&gt; landmark</td><td>1.3.1</td><td>✅</td></tr>
+    <tr><td>Image with alt (required)</td><td>1.1.1</td><td>✅</td></tr>
+    <tr><td>Decorative SVGs aria-hidden</td><td>1.1.1</td><td>✅ (via Button)</td></tr>
+    <tr><td>aria-label for trailer button (when icon-only)</td><td>4.1.2</td><td>✅</td></tr>
+    <tr><td>Color contrast on dark tone</td><td>1.4.3</td><td>✅ (typography tones aware)</td></tr>
+    <tr><td>Touch targets ≥44px</td><td>2.5.5</td><td>✅ (via Button)</td></tr>
+    <tr><td>Focus-visible on all interactive</td><td>2.4.7</td><td>✅ (via Button)</td></tr>
+    <tr><td>Mobile-first responsive</td><td>1.4.10</td><td>✅</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:var(--space-16);padding: var(--space-8) var(--section-pad-x);text-align: center; font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--color-text-muted)">
+  Generated by Brad Frost · AIOX Design Squad · 2026-04-27
+</p>
+
+</body>
+</html>
