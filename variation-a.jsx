@@ -48,7 +48,7 @@ function VariationA() {
       <nav className="a-nav" data-screen-label="A · Nav">
         <div className="a-logo">
           <span className="mark">A</span>
-          <span className="name">Autonom<span className="ia">.ia</span></span>
+          <span className="name">AUTONOM<span className="ia">.IA</span></span>
           <span className="sub">Mentoria executiva</span>
         </div>
         <div className="a-nav-links">

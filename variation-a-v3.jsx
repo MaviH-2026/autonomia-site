@@ -164,7 +164,7 @@ function VariationA() {
         <div className="a-logo">
           <span className="mark" aria-hidden="true">A</span>
           <span className="name">
-            Autonom<span className="ia">.ia</span>
+            AUTONOM<span className="ia">.IA</span>
           </span>
         </div>
         <div className="a-nav-links">
@@ -536,7 +536,7 @@ function VariationA() {
         <div className="a-footer-grid">
           <div>
             <Display as="div" id="footer-brand" className="brand" style={{ fontSize: 'var(--fs-h3)' }}>
-              Autonom<em>.ia</em>
+              AUTONOM<em>.IA</em>
             </Display>
             <Body size="sm" tone="on-dark-soft" className="desc">
               Mentoria executiva para líderes que querem atravessar a era da IA como protagonistas, não como espectadores.

@@ -48,7 +48,7 @@ function VariationA() {
       <nav className="a-nav" data-screen-label="A · Nav">
         <div className="a-logo">
           <span className="mark">A</span>
-          <span className="name">Autonom<span className="ia">.ia</span></span>
+          <span className="name">AUTONOM<span className="ia">.IA</span></span>
           <span className="sub">Mentoria executiva</span>
         </div>
         <div className="a-nav-links">
@@ -383,7 +383,7 @@ function VariationA() {
       <footer className="a-footer" data-screen-label="A · Footer">
         <div className="a-footer-grid">
           <div>
-            <div className="brand">Autonom<em>.ia</em></div>
+            <div className="brand">AUTONOM<em>.IA</em></div>
             <p className="desc">
               Mentoria executiva para líderes que querem atravessar a era da IA como protagonistas, não como espectadores.
             </p>
