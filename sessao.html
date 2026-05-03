@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sessão Estratégica · AUTONOM.IA</title>
+  <meta name="description" content="Mentoria executiva para líderes que querem atravessar a era da IA como protagonistas, não como espectadores." />
+
+  <!-- ═══════════════════════════════════════════════
+       1. TOKENS (foundation — must load first)
+       ═══════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="./styles-tokens-v2.css" />
+
+  <!-- ═══════════════════════════════════════════════
+       2. ATOMIC COMPONENTS CSS
+       ═══════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="./components/Typography/Typography.css" />
+  <link rel="stylesheet" href="./components/Button/Button.css" />
+  <link rel="stylesheet" href="./components/Card/Card.css" />
+  <link rel="stylesheet" href="./components/Faq/Faq.css" />
+  <link rel="stylesheet" href="./components/Form/Form.css" />
+
+  <!-- ═══════════════════════════════════════════════
+       3. MOLECULES & ORGANISMS CSS
+       ═══════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="./components/SectionHeader/SectionHeader.css" />
+  <link rel="stylesheet" href="./components/Hero/Hero.css" />
+
+  <!-- ═══════════════════════════════════════════════
+       4. PAGE LAYOUT CSS (variation-a v3)
+       ═══════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="./styles-variation-a-v3.css" />
+
+  <!-- ═══════════════════════════════════════════════
+       5. REACT + BABEL (CDN — for zero-build setup)
+       ═══════════════════════════════════════════════ -->
+  <script
+    src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+    crossorigin="anonymous"></script>
+
+  <style>
+    /* Loading state — hides flash of unstyled content while Babel transforms JSX */
+    body.loading #root { opacity: 0; }
+    #root {
+      opacity: 1;
+      transition: opacity 200ms ease-out;
+    }
+
+    /* Loading spinner */
+    .app-loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg-page);
+      z-index: 9999;
+      pointer-events: none;
+      transition: opacity 200ms ease-out;
+    }
+    body:not(.loading) .app-loader {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .app-loader-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--color-bg-dark);
+      color: var(--color-text-on-dark);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 22px;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.92); }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <!-- Loading state -->
+  <div class="app-loader" aria-hidden="true">
+    <div class="app-loader-mark">A</div>
+  </div>
+
+  <!-- React mount point -->
+  <div id="root"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       6. COMPONENTS JSX — load in dependency order
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Atoms (no dependencies on other components) -->
+  <script type="text/babel" data-presets="env,react" src="./components/Typography/Typography.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="./components/Button/Button.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="./components/Card/Card.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="./components/Faq/Faq.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="./components/Form/Form.jsx"></script>
+
+  <!-- Molecules (use atoms) -->
+  <script type="text/babel" data-presets="env,react" src="./components/SectionHeader/SectionHeader.jsx"></script>
+
+  <!-- Organisms (use atoms + molecules) -->
+  <script type="text/babel" data-presets="env,react" src="./components/Hero/Hero.jsx"></script>
+
+  <!-- ═══════════════════════════════════════════════
+       7. PAGE COMPONENT
+       ═══════════════════════════════════════════════ -->
+  <script type="text/babel" data-presets="env,react" src="./variation-sessao.jsx"></script>
+
+  <!-- ═══════════════════════════════════════════════
+       8. APP MOUNT — waits for ALL components
+       ═══════════════════════════════════════════════ -->
+  <script type="text/babel" data-presets="env,react">
+    // ALL components that must exist before render
+    const REQUIRED = [
+      // Atoms
+      'Display', 'Heading', 'Lede', 'Body', 'Eyebrow', 'Quote', 'Mono',
+      'Button', 'Card', 'Faq',
+      'FormField', 'Input', 'Textarea', 'Select', 'Checkbox', 'Radio', 'RadioGroup',
+      // Molecules
+      'SectionHeader',
+      // Organisms
+      'Hero', 'HeroPortrait',
+      // Page
+      'VariationA'
+    ];
+
+    function getMissing() {
+      return REQUIRED.filter(name => typeof window[name] !== 'function');
+    }
+
+    function mount() {
+      console.log('[Mount] All components ready. Rendering...');
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(window.SessionPage));
+      requestAnimationFrame(() => {
+        document.body.classList.remove('loading');
+      });
+      console.log('[Mount] ✅ App rendered');
+    }
+
+    function showError(missing, errorMessage) {
+      console.error('[Mount] ❌ FAILED. Missing:', missing);
+      console.table(REQUIRED.map(n => ({ component: n, loaded: typeof window[n] === 'function' })));
+      document.body.classList.remove('loading');
+      document.getElementById('root').innerHTML =
+        '<div style="padding:48px;font-family:Inter,sans-serif;max-width:720px;margin:64px auto;line-height:1.6;color:#16140C">' +
+        '<h1 style="margin-bottom:16px">Component failed to load</h1>' +
+        '<p style="margin-bottom:8px">Missing components:</p>' +
+        '<ul style="margin-bottom:24px">' + missing.map(m => '<li><code style="background:#f4f4f4;padding:2px 6px;border-radius:4px">' + m + '</code></li>').join('') + '</ul>' +
+        (errorMessage ? '<p style="margin-bottom:8px">Error message:</p><pre style="background:#16140C;color:#FEFAF2;padding:12px;border-radius:8px;overflow:auto;font-size:13px">' + errorMessage + '</pre>' : '') +
+        '<p style="margin-top:16px;font-size:14px;color:#666">Open the Console (Cmd+Option+J) for the parse error.</p>' +
+        '</div>';
+    }
+
+    // Wait for ALL components to be available
+    let attempts = 0;
+    const maxAttempts = 200; // 10 seconds at 50ms intervals
+
+    const checkInterval = setInterval(() => {
+      const missing = getMissing();
+      attempts++;
+
+      if (missing.length === 0) {
+        clearInterval(checkInterval);
+        try {
+          mount();
+        } catch (e) {
+          console.error('[Mount] Render error:', e);
+          showError([], e.message + '\n\n' + e.stack);
+        }
+      } else if (attempts >= maxAttempts) {
+        clearInterval(checkInterval);
+        showError(missing);
+      }
+    }, 50);
+
+    // Catch any global errors during script loading
+    window.addEventListener('error', (event) => {
+      if (event.filename && event.filename.endsWith('.jsx')) {
+        console.error('[Script Error]', event.filename, event.message);
+      }
+    });
+  </script>
+
+</body>
+</html>
