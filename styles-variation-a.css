@@ -833,6 +833,10 @@
 /* ───────── FECHAMENTO ───────── */
 .a-closing{
   padding: 140px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background: var(--color-bg-dark);
   color: var(--color-text-on-dark);
