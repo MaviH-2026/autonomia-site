@@ -1,7 +1,7 @@
 /* global React */
 /**
  * Sessão Estratégica — High-Conversion Page
- * 
+ *
  * Based on the Design System of Variation A v3.0
  * Focus: High value, low friction, clear deliverable.
  */
@@ -13,12 +13,9 @@ function SessionPage() {
   const PORTRAIT = 'igor.png';
 
   const sessionSteps = [
-    { n: '0-15m', title: 'Mergulho Operacional', sub: 'Análise profunda dos gargalos, fricções e ' +
-      'processos que hoje consomem tempo e margem no seu negócio.' },
-    { n: '15-40m', title: 'Mapeamento de Alavancas', sub: 'Identificação do "Low Hanging Fruit" (ganhos rápidos) ' +
-      'versus "Apostas Estratégicas" (vantagem competitiva de longo prazo).' },
-    { n: '40-60m', title: 'Roadmap de Execução', sub: 'Construção do caminho crítico: o que fazer primeiro, ' +
-      'quem envolver e como medir o sucesso da implementação.' }
+    { n: '0-15m', title: 'Mergulho Operacional', sub: 'Análise profunda dos gargalos, fricções e processos que hoje consomem tempo e margem no seu negócio.' },
+    { n: '15-40m', title: 'Mapeamento de Alavancas', sub: 'Identificação do "Low Hanging Fruit" (ganhos rápidos) versus "Apostas Estratégicas" (vantagem competitiva de longo prazo).' },
+    { n: '40-60m', title: 'Roadmap de Execução', sub: 'Construção do caminho crítico: o que fazer primeiro, quem envolver e como medir o sucesso da implementação.' }
   ];
 
   const deliverables = [
@@ -46,28 +43,306 @@ function SessionPage() {
     }
   ];
 
+  const CheckIcon = () => (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M3 7l3 3 5-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" />
+    </svg>
+  );
+
+  const ShieldIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style={{ color: 'var(--color-text-primary)' }}>
+      <path d="M9 1l8 3v5c0 4.5-3.5 7.5-8 8-4.5-.5-8-3.5-8-8V4l8-3z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      <path d="M5.5 9l2.5 2.5L13 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+    </svg>
+  );
+
   return (
-    <div className=\"a-page\">
-      <a href=\"#main\" className=\"skip-link\">
+    <div className="a-page">
+      <a href="#main" className="skip-link">
         Pular para conteúdo principal
       </a>
 
-      {/* TOP BAR */}\n      <div className=\"a-topbar\">\n        <div className=\"left\">\n          <span className=\"live\" role=\"status\">\n            <span className=\"dot\" aria-hidden=\"true\"></span>\n            Sessões Disponíveis\n          </span>\n          <Mono tone=\"on-dark-soft\" className=\"typo-mono--upper\">\n            Vagas limitadas para este mês\n          </Mono>\n        </div>\n        <div className=\"right\">\n          <Mono tone=\"on-dark-soft\" className=\"typo-mono--upper\">\n            autonomiadigital.ia.br/sessao\n          </Mono>\n        </div>\n      </div>
+      {/* TOP BAR */}
+      <div className="a-topbar">
+        <div className="left">
+          <span className="live" role="status">
+            <span className="dot" aria-hidden="true"></span>
+            Sessões Disponíveis
+          </span>
+          <Mono tone="on-dark-soft" className="typo-mono--upper">
+            Vagas limitadas para este mês
+          </Mono>
+        </div>
+        <div className="right">
+          <Mono tone="on-dark-soft" className="typo-mono--upper">
+            autonomiadigital.ia.br/sessao
+          </Mono>
+        </div>
+      </div>
 
-      {/* NAV */}\n      <nav className=\"a-nav\" aria-label=\"Principal\">\n        <div className=\"a-logo\">\n          <span className=\"mark\" aria-hidden=\"true\">A</span>\n          <span className=\"name\">\n            Autonom<span className=\"ia\">.ia</span>\n          </span>\n        </div>\n        <div className=\"a-nav-links\">\n          <a href=\"https://autonomiadigital.ia.br\">Voltar para Home</a>\n        </div>\n        <div className=\"a-nav-actions\">\n          <Button as=\"a\" href=\"#pricing\" variant=\"primary\" size=\"sm\" arrow>\n            Garantir minha sessão\n          </Button>\n        </div>\n      </nav>
+      {/* NAV */}
+      <nav className="a-nav" aria-label="Principal">
+        <div className="a-logo">
+          <span className="mark" aria-hidden="true">A</span>
+          <span className="name">
+            AUTONOM<span className="ia">.IA</span>
+          </span>
+        </div>
+        <div className="a-nav-links">
+          <a href="https://autonomiadigital.ia.br">Voltar para Home</a>
+        </div>
+        <div className="a-nav-actions">
+          <Button as="a" href="#pricing" variant="primary" size="sm" arrow>
+            Garantir minha sessão
+          </Button>
+        </div>
+      </nav>
 
-      <main id=\"main\">\n        {/* HERO */}\n        <header className=\"a-hero\">\n          <div className=\"a-hero-left\">\n            <div className=\"lockup\">\n              <Eyebrow tone=\"secondary\">Imersão Estratégica Individual</Eyebrow>\n            </div>\n            <Display>\n              Do diagnóstico à<br />\n              <em>execução concreta</em>.\n            </Display>\n            <Lede>\n              Uma hora de imersão profunda para transformar a clareza inicial em um roadmap de implementação AI First. Ideal para quem já sabe que a IA é o caminho, mas precisa do mapa exato para não desperdiçar tempo e capital.\n            </Lede>\n            <div className=\"a-hero-ctas\">\n              <Button as=\"a\" href=\"#pricing\" variant=\"primary\" size=\"sm\" arrow>\n                Agendar Sessão Estratégica (R$ 500)\n              </Button>\n              <Button as=\"a\" href=\"#processo\" variant=\"secondary\" size=\"sm\" play>\n                Ver o processo\n              </Button>\n            </div>\n          </div>\n          <div className=\"a-hero-right\">\n            <img\n              src={PORTRAIT}\n              alt=\"Igor Drews - Estrategista de IA\"\n              className=\"a-hero-portrait\"\n            />\n            <div className=\"a-hero-overlay\">\n              <div className=\"name\">Igor Drews</div>\n              <div className=\"role\">Estrategista de IA · Mentor</div>\n            </div>\n          </div>\n        </header>
+      <main id="main">
+        {/* HERO */}
+        <header className="a-hero">
+          <div className="a-hero-left">
+            <div className="lockup">
+              <Eyebrow tone="secondary">Imersão Estratégica Individual</Eyebrow>
+            </div>
+            <Display>
+              Do diagnóstico à<br />
+              <em>execução concreta</em>.
+            </Display>
+            <Lede>
+              Uma hora de imersão profunda para transformar a clareza inicial em um roadmap de implementação AI First. Ideal para quem já sabe que a IA é o caminho, mas precisa do mapa exato para não desperdiçar tempo e capital.
+            </Lede>
+            <div className="a-hero-ctas">
+              <Button as="a" href="#pricing" variant="primary" size="sm" arrow>
+                Agendar Sessão Estratégica (R$ 500)
+              </Button>
+              <Button as="a" href="#processo" variant="secondary" size="sm" play>
+                Ver o processo
+              </Button>
+            </div>
+          </div>
+          <div className="a-hero-right">
+            <img
+              src={PORTRAIT}
+              alt="Igor Drews - Estrategista de IA"
+              className="a-hero-portrait"
+            />
+            <div className="a-hero-overlay">
+              <div className="name">Igor Drews</div>
+              <div className="role">Estrategista de IA · Mentor</div>
+            </div>
+          </div>
+        </header>
 
-        {/* GAP SECTION */}\n        <section className=\"a-section a-promise\" id=\"gap\" aria-labelledby=\"gap-title\">\n          <div className=\"ds-container\">\n            <Eyebrow withDash tone=\"secondary\">A lacuna de implementação</Eyebrow>\n            <div className=\"a-promise-grid\">\n              <Heading level={2} id=\"gap-title\">\n                Saber que é importante<br />\n                não é o mesmo que <em>saber como fazer</em>.\n              </Heading>\n            </div>\n            <Lede>\n              A maioria dos líderes sofre da \"ansiedade da ferramenta\". Eles sabem que a IA pode mudar o jogo, mas ficam presos em tutoriais de prompts ou ferramentas soltas que não movem o ponteiro do negócio. A distância entre o diagnóstico e o resultado é a <strong>estratégia de implementação</strong>.\n            </Lede>\n          </div>\n        </section>
+        {/* GAP SECTION */}
+        <section className="a-section a-promise" id="gap" aria-labelledby="gap-title">
+          <div className="ds-container">
+            <Eyebrow withDash tone="secondary">A lacuna de implementação</Eyebrow>
+            <div className="a-promise-grid">
+              <Heading level={2} id="gap-title">
+                Saber que é importante<br />
+                não é o mesmo que <em>saber como fazer</em>.
+              </Heading>
+            </div>
+            <Lede>
+              A maioria dos líderes sofre da "ansiedade da ferramenta". Eles sabem que a IA pode mudar o jogo, mas ficam presos em tutoriais de prompts ou ferramentas soltas que não movem o ponteiro do negócio. A distância entre o diagnóstico e o resultado é a <strong>estratégia de implementação</strong>.
+            </Lede>
+          </div>
+        </section>
 
-        {/* PROCESSO */}\n        <section className=\"a-section a-section--full a-journey\" id=\"processo\" aria-labelledby=\"processo-title\">\n          <div className=\"ds-container\">\n            <div className=\"a-journey-header\">\n              <div>\n                <Eyebrow withDash tone=\"secondary\">A Sessão</Eyebrow>\n                <Heading level={2} id=\"processo-title\">\n                  60 minutos.<br />\n                  Um <em>plano de ação</em>.\n                </Heading>\n              </div>\n              <Lede>\n                Não é uma consultoria inflada. É uma hora de foco total no seu contexto para extrair o máximo de valor com o mínimo de fricção.\n              </Lede>\n            </div>\n            <div className=\"card-grid card-grid--3 card-grid--divided\" role=\"list\" aria-label=\"Passos da sessão estratégica\">\n              {sessionSteps.map((s) => (\n                <Card\n                  key={s.n}\n                  variant=\"numbered\"\n                  tone=\"surface\"\n                  eyebrow={s.n}\n                  title={s.title}\n                  body={s.sub}\n                  role=\"listitem\"\n                />\n              ))}\n            </div>\n          </div>\n        </section>
+        {/* PROCESSO */}
+        <section className="a-section a-section--full a-journey" id="processo" aria-labelledby="processo-title">
+          <div className="ds-container">
+            <div className="a-journey-header">
+              <div>
+                <Eyebrow withDash tone="secondary">A Sessão</Eyebrow>
+                <Heading level={2} id="processo-title">
+                  60 minutos.<br />
+                  Um <em>plano de ação</em>.
+                </Heading>
+              </div>
+              <Lede>
+                Não é uma consultoria inflada. É uma hora de foco total no seu contexto para extrair o máximo de valor com o mínimo de fricção.
+              </Lede>
+            </div>
+            <div className="card-grid card-grid--3 card-grid--divided" role="list" aria-label="Passos da sessão estratégica">
+              {sessionSteps.map((s) => (
+                <Card
+                  key={s.n}
+                  variant="numbered"
+                  tone="surface"
+                  eyebrow={s.n}
+                  title={s.title}
+                  body={s.sub}
+                  role="listitem"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
-        {/* DELIVERABLES */}\n        <section className=\"a-section\" id=\"entregaveis\" aria-labelledby=\"del-title\">\n          <Eyebrow withDash tone=\"secondary\">O que você leva</Eyebrow>\n          <Heading level={2} id=\"del-title\">\n            Você não sai com anotações.<br />\n            Sai com um <em>ativo de clareza</em>.\n          </Heading>\n          <div className=\"card-grid card-grid--3\" style={{ marginTop: 'var(--space-12)' }} role=\"list\">\n            {deliverables.map((d, i) => (\n              <li key={i} role=\"listitem\">\n                <Card\n                  variant=\"feature\"\n                  title={d.title}\n                  body={d.body}\n                />\n              </li>\n            ))}\n          </div>\n        </section>
+        {/* DELIVERABLES */}
+        <section className="a-section" id="entregaveis" aria-labelledby="del-title">
+          <Eyebrow withDash tone="secondary">O que você leva</Eyebrow>
+          <Heading level={2} id="del-title">
+            Você não sai com anotações.<br />
+            Sai com um <em>ativo de clareza</em>.
+          </Heading>
+          <div className="card-grid card-grid--3" style={{ marginTop: 'var(--space-12)' }} role="list">
+            {deliverables.map((d, i) => (
+              <li key={i} role="listitem">
+                <Card
+                  variant="feature"
+                  icon={<CheckIcon />}
+                  title={d.title}
+                  body={d.body}
+                />
+              </li>
+            ))}
+          </div>
+        </section>
 
-        {/* PRICING / OFFER */}\n        <section className=\"a-offer\" id=\"pricing\" aria-labelledby=\"pricing-title\">\n          <Eyebrow withDash tone=\"secondary\">Investimento</Eyebrow>\n          <Heading level={2} id=\"pricing-title\">\n            Troque a incerteza<br />\n            por <em>direção concreta</em>.\n          </Heading>\n          <div className=\"a-offer-card\">\n            <div className=\"a-offer-left\">\n              <Heading level={3} visualSize={3}>\n                Sessão Estratégica <br />\n                AUTONOM.IA\n              </Heading>\n              <Mono tone=\"muted\" className=\"a-offer-subtitle typo-mono--upper\">\n                Imersão Individual · 60 Minutos\n              </Mono>\n              <ul className=\"a-offer-list\">\n                <li>\n                  <span className=\"ds-check-pill\" aria-hidden=\"true\">\n                    <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\"><path d=\"M3 7l3 3 5-6\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"square\" /></svg>\n                  </span>\n                  <Body size=\"md\" tone=\"secondary\">\n                    <strong>Análise profunda</strong> de gargalos operacionais.\n                  </Body>\n                </li>\n                <li>\n                  <span className=\"ds-check-pill\" aria-hidden=\"true\">\n                    <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\"><path d=\"M3 7l3 3 5-6\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"square\" /></svg>\n                  </span>\n                  <Body size=\"md\" tone=\"secondary\">\n                    <strong>Mapeamento de alavancas</strong> prioritárias (Quick Wins).\n                  </Body>\n                </li>\n                <li>\n                  <span className=\"ds-check-pill\" aria-hidden=\"true\">\n                    <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\"><path d=\"M3 7l3 3 5-6\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"square\" /></svg>\n                  </span>\n                  <Body size=\"md\" tone=\"secondary\">\n                    <strong>Roadmap de Implementação</strong> passo a passo.\n                  </Body>\n                </li>\n                <li>\n                  <span className=\"ds-check-pill\" aria-hidden=\"true\">\n                    <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\"><path d=\"M3 7l3 3 5-6\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"square\" /></svg>\n                  </span>\n                  <Body size=\"md\" tone=\"secondary\">\n                    <strong>Filtro estratégico</strong> para escolha de ferramentas.\n                  </Body>\n                </li>\n              </ul>\n            </div>\n            <div className=\"a-offer-right\">\n              <div>\n                <div className=\"a-price-new\">\n                  <span className=\"visually-hidden\">Preço: </span>\n                  R$ <em>500</em>\n                </div>\n                <Mono tone=\"muted\" className=\"a-price-cur\">BRL · Pagamento único</Mono>\n                <Body size=\"sm\" tone=\"secondary\">\n                  Sessão individual. Foco total no seu negócio. Sem mensalidades.\n                </Body>\n              </div>\n              <div>\n                <Button as=\"a\" href=\"/checkout-sessao\" variant=\"primary\" size=\"sm\" block arrow>\n                  Agendar minha sessão\n                </Button>\n                <div className=\"a-guarantee\">\n                  <span className=\"badge\" aria-hidden=\"true\">\n                    <svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\"><path d=\"M9 1l8 3v5c0 4.5-3.5 7.5-8 8-4.5-.5-8-3.5-8-8V4l8-3z\" stroke=\"currentColor\" strokeWidth=\"1.5\" fill=\"none\" /><path d=\"M5.5 9l2.5 2.5L13 6.5\" stroke=\"currentColor\" strokeWidth=\"1.5\" strokeLinecap=\"square\" /></svg>\n                  </span>\n                  <Body size=\"sm\" tone=\"secondary\">\n                    <strong>Garantia de Valor</strong>: se ao final da sessão você sentir que não teve clareza superior ao investimento, devolvo o valor integral.\n                  </Body>\n                </div>\n              </div>\n            </div>\n          </div>\n        </section>
+        {/* PRICING / OFFER */}
+        <section className="a-offer" id="pricing" aria-labelledby="pricing-title">
+          <Eyebrow withDash tone="secondary">Investimento</Eyebrow>
+          <Heading level={2} id="pricing-title">
+            Troque a incerteza<br />
+            por <em>direção concreta</em>.
+          </Heading>
+          <div className="a-offer-card">
+            <div className="a-offer-left">
+              <Heading level={3} visualSize={3}>
+                Sessão Estratégica <br />
+                AUTONOM.IA
+              </Heading>
+              <Mono tone="muted" className="a-offer-subtitle typo-mono--upper">
+                Imersão Individual · 60 Minutos
+              </Mono>
+              <ul className="a-offer-list">
+                <li>
+                  <span className="ds-check-pill" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  <Body size="md" tone="secondary">
+                    <strong>Análise profunda</strong> de gargalos operacionais.
+                  </Body>
+                </li>
+                <li>
+                  <span className="ds-check-pill" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  <Body size="md" tone="secondary">
+                    <strong>Mapeamento de alavancas</strong> prioritárias (Quick Wins).
+                  </Body>
+                </li>
+                <li>
+                  <span className="ds-check-pill" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  <Body size="md" tone="secondary">
+                    <strong>Roadmap de Implementação</strong> passo a passo.
+                  </Body>
+                </li>
+                <li>
+                  <span className="ds-check-pill" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  <Body size="md" tone="secondary">
+                    <strong>Filtro estratégico</strong> para escolha de ferramentas.
+                  </Body>
+                </li>
+              </ul>
+            </div>
+            <div className="a-offer-right">
+              <div>
+                <div className="a-price-new">
+                  <span className="visually-hidden">Preço: </span>
+                  R$ <em>500</em>
+                </div>
+                <Mono tone="muted" className="a-price-cur">BRL · Pagamento único</Mono>
+                <Body size="sm" tone="secondary">
+                  Sessão individual. Foco total no seu negócio. Sem mensalidades.
+                </Body>
+              </div>
+              <div>
+                <Button as="a" href="https://calendar.app.google/EYvGA93kBXE6Tp4t6" target="_blank" rel="noopener noreferrer" variant="primary" size="sm" block arrow>
+                  Agendar minha sessão
+                </Button>
+                <div className="a-guarantee">
+                  <span className="badge" aria-hidden="true">
+                    <ShieldIcon />
+                  </span>
+                  <Body size="sm" tone="secondary">
+                    <strong>Garantia de Valor</strong>: se ao final da sessão você sentir que não teve clareza superior ao investimento, devolvo o valor integral.
+                  </Body>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* FAQ */}\n        <section className=\"a-section\" id=\"faq\" aria-labelledby=\"faq-title\">\n          <Eyebrow withDash tone=\"secondary\">Dúvidas comuns</Eyebrow>\n          <Heading level={2} id=\"faq-title\">\n            Respostas diretas <br />\n            para quem decide.\n          </Heading>\n          <div className=\"faq-container\" style={{ marginTop: 'var(--space-12)' }}>\n            {faqs.map((f, i) => (\n              <Faq key={i} q={f.q} a={f.a} />\n            ))}\n          </div>\n        </section>
+        {/* FAQ */}
+        <section className="a-section" id="faq" aria-labelledby="faq-title">
+          <Eyebrow withDash tone="secondary">Dúvidas comuns</Eyebrow>
+          <Heading level={2} id="faq-title">
+            Respostas diretas <br />
+            para quem decide.
+          </Heading>
+          <Faq
+            items={faqs}
+            defaultOpen={0}
+            headingLevel={3}
+            aria-label="Dúvidas frequentes sobre a sessão estratégica"
+          />
+        </section>
 
-        {/* FINAL CTA */}\n        <section className=\"a-closing\" aria-labelledby=\"closing-title\">\n          <div className=\"ds-container\">\n            <div className=\"a-offer-card\" style={{ textAlign: 'center', padding: '60px 40px' }}>\n              <Eyebrow tone=\"secondary\">Próximo passo</Eyebrow>\n              <Heading level={2} id=\"closing-title\" visualSize={2}>\n                Pare de experimentar.<br />\n                Comece a <em>operar</em>.\n              </Heading>\n              <Lede style={{ margin: '24px 0 40px' }}>\n                A diferença entre quem usa a IA e quem domina a IA é a estratégia. Garanta seu horário e transforme sua operação em um sistema AI First.\n              </Lede>\n              <Button as=\"a\" href=\"#pricing\" variant=\"primary\" size=\"md\" block arrow>\n                Agendar minha Sessão Estratégica\n              </Button>\n            </div>\n          </div>\n        </section>\n      </main>
+        {/* FINAL CTA */}
+        <section className="a-closing" aria-labelledby="closing-title">
+          <Eyebrow withDash tone="accent">Próximo passo</Eyebrow>
+          <Display tone="on-dark" id="closing-title">
+            Pare de <em>experimentar</em>.<br />
+            Comece a <em>operar</em>.
+          </Display>
+          <Lede tone="on-dark-soft">
+            A diferença entre quem usa a IA e quem domina a IA é a estratégia. Garanta seu horário e transforme sua operação em um sistema AI First.
+          </Lede>
+          <div className="a-closing-cta">
+            <Button as="a" href="https://calendar.app.google/EYvGA93kBXE6Tp4t6" target="_blank" rel="noopener noreferrer" variant="accent" size="sm" arrow>
+              Agendar minha Sessão Estratégica
+            </Button>
+          </div>
+        </section>
+      </main>
 
-      <footer style={{ padding: '40px 0', textAlign: 'center', borderTop: '1px solid rgba(11,15,20,.08)' }}>\n        <Mono tone=\"muted\" className=\"typo-mono--upper\" style={{ fontSize: '10px', letterSpacing: '.14em' }}>\n          AUTONOM.IA · Sessão Estratégica · 2026\n        </Mono>\n      </footer>\n    </div>\n  );\n}\n
+      {/* FOOTER */}
+      <footer className="a-footer" aria-labelledby="footer-brand">
+        <div className="a-footer-grid">
+          <div>
+            <Display as="div" id="footer-brand" className="brand" style={{ fontSize: 'var(--fs-h3)' }}>
+              AUTONOM<em>.IA</em>
+            </Display>
+            <Body size="sm" tone="on-dark-soft" className="desc">
+              Sessão Estratégica: uma hora de imersão profunda para transformar clareza em execução.
+            </Body>
+          </div>
+          <nav aria-labelledby="footer-contact">
+            <Eyebrow as="h3" tone="on-dark-soft" id="footer-contact" className="typo--tone-on-dark-soft">
+              Contato
+            </Eyebrow>
+            <ul>
+              <li><a href="mailto:igor@autonomiadigital.ia.br">Email</a></li>
+              <li><a href="https://wa.me/5551999898118" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div className="a-footer-bottom">
+          <Mono tone="on-dark-soft" className="typo-mono--upper">
+            © 2026 AUTONOM.IA · Sessão Estratégica
+          </Mono>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+window.SessionPage = SessionPage;
