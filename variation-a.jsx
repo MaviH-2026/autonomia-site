@@ -95,7 +95,7 @@ function VariationA() {
           <div className="a-hero-portrait" style={{backgroundImage:`url(${STAGE})`}}></div>
           <div className="a-hero-overlay">
             <div className="name">Igor Drews</div>
-            <div className="role">Estrategista de IA · Mentor</div>
+            <div className="role">Estrategista em AI-First · Mentor</div>
           </div>
           <div className="a-hero-play">
             <button className="ds-btn ds-btn--secondary" style={{padding:'14px 22px'}}>
@@ -160,7 +160,7 @@ function VariationA() {
           a estrela do show.<br/>
           Quem <em>conduz</em> é.
         </div>
-        <div className="a-pullquote-attr">Igor Drews · Estrategista de IA</div>
+        <div className="a-pullquote-attr">Igor Drews · Estrategista em AI-First</div>
       </section>
 
       {/* INSTRUTOR */}
@@ -190,7 +190,7 @@ function VariationA() {
             <div className="a-instructor-meta">
               <div>
                 <div className="signature">Igor Drews</div>
-                <div className="role">Estrategista de IA · Mentor de Líderes Orquestradores</div>
+                <div className="role">Estrategista em AI-First · Mentor de Líderes Orquestradores</div>
               </div>
             </div>
           </div>

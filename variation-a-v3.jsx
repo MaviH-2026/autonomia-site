@@ -213,7 +213,7 @@ function VariationA() {
             />
             <div className="a-hero-overlay">
               <div className="name">Igor Drews</div>
-              <div className="role">Estrategista de IA · Mentor</div>
+              <div className="role">Estrategista em AI-First · Mentor</div>
             </div>
           </div>
         </header>
@@ -262,7 +262,7 @@ function VariationA() {
         {/* PULL QUOTE */}
         <section className="a-pullquote" aria-label="Citação destacada">
           <Quote
-            attribution="Igor Drews · Estrategista de IA"
+            attribution="Igor Drews · Estrategista em AI-First"
             tone="on-dark"
           >
             A tecnologia não é<br />
@@ -308,7 +308,7 @@ function VariationA() {
                 <div>
                   <div className="signature">Igor Drews</div>
                   <Mono tone="muted" className="role typo-mono--upper">
-                    Estrategista de IA · Mentor de Líderes Orquestradores
+                    Estrategista em AI-First · Mentor de Líderes Orquestradores
                   </Mono>
                 </div>
               </div>

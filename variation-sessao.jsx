@@ -124,12 +124,12 @@ function SessionPage() {
           <div className="a-hero-right">
             <img
               src={PORTRAIT}
-              alt="Igor Drews - Estrategista de IA"
+              alt="Igor Drews - Estrategista em AI-First"
               className="a-hero-portrait"
             />
             <div className="a-hero-overlay">
               <div className="name">Igor Drews</div>
-              <div className="role">Estrategista de IA · Mentor</div>
+              <div className="role">Estrategista em AI-First · Mentor</div>
             </div>
           </div>
         </header>
