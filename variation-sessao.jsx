@@ -93,7 +93,7 @@ function SessionPage() {
         </div>
         <div className="a-nav-actions">
           <Button as="a" href="#pricing" variant="primary" size="sm" arrow>
-            Garantir minha sessão
+            Reservar minha sessão estratégica
           </Button>
         </div>
       </nav>
@@ -114,7 +114,7 @@ function SessionPage() {
             </Lede>
             <div className="a-hero-ctas">
               <Button as="a" href="#pricing" variant="primary" size="sm" arrow>
-                Agendar Sessão Estratégica (R$ 500)
+                Quero meu diagnóstico AI-First
               </Button>
               <Button as="a" href="#processo" variant="secondary" size="sm" play>
                 Ver o processo
@@ -306,9 +306,9 @@ function SessionPage() {
           <Lede tone="on-dark-soft">
             A diferença entre quem usa a IA e quem domina a IA é a estratégia. Garanta seu horário e transforme sua operação em um sistema AI First.
           </Lede>
-          <div className="a-closing-cta">
-            <Button as="a" href="https://calendar.app.google/EYvGA93kBXE6Tp4t6" target="_blank" rel="noopener noreferrer" variant="accent" size="sm" arrow>
-              Agendar minha Sessão Estratégica
+          <div className="a-closing-cta" style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button as="a" href="https://calendar.app.google/EYvGA93kBXE6Tp4t6" target="_blank" rel="noopener noreferrer" variant="accent" size="sm" arrow style={{ width: 'fit-content' }}>
+              Receber meu roadmap estratégico
             </Button>
           </div>
         </section>
