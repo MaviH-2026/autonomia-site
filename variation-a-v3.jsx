@@ -539,7 +539,7 @@ function VariationA() {
               <span style={{color: 'var(--color-accent)'}}>AUTONOM</span><em>.IA</em>
             </Display>
             <Body size="sm" tone="on-dark-soft" className="desc">
-              Estratégia para líderes
+              Estratégia para líderes que querem atravessar a era da IA como protagonistas, não como espectadores.
             </Body>
           </div>
           <nav aria-labelledby="footer-program">

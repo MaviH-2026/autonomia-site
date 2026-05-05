@@ -385,7 +385,7 @@ function VariationA() {
           <div>
             <div className="brand"><span style={{color: 'var(--color-accent)'}}>Autonom</span><em>.ia</em></div>
             <p className="desc">
-              Estratégia para líderes
+              Estratégia para líderes que querem atravessar a era da IA como protagonistas, não como espectadores.
             </p>
           </div>
           <div>
