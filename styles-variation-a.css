@@ -736,10 +736,11 @@
   margin-bottom: 28px;
 }
 .a-cta-large{
-  width: 100%;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   background: var(--color-bg-dark);
   color: var(--color-text-on-dark);
   font-family: var(--font-body);
