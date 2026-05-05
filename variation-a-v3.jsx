@@ -480,8 +480,8 @@ function VariationA() {
                 </Body>
               </div>
               <div>
-                <Button as="a" href="/checkout" variant="primary" size="sm" block arrow>
-                  Quero atravessar
+                <Button as="a" href="https://wa.me/5551999188118?text=Olá%20Igor!%20Eu%20quero%20saber%20mais%20sobre%20a%20mentoria%20executiva" target="_blank" rel="noopener noreferrer" variant="primary" size="sm" arrow>
+                  Quero saber mais
                 </Button>
                 <div className="a-guarantee">
                   <span className="badge" aria-hidden="true">
@@ -536,10 +536,10 @@ function VariationA() {
         <div className="a-footer-grid">
           <div>
             <Display as="div" id="footer-brand" className="brand" style={{ fontSize: 'var(--fs-h3)' }}>
-              AUTONOM<em>.IA</em>
+              <span style={{color: 'var(--color-accent)'}}>AUTONOM</span><em>.IA</em>
             </Display>
             <Body size="sm" tone="on-dark-soft" className="desc">
-              Mentoria executiva para líderes que querem atravessar a era da IA como protagonistas, não como espectadores.
+              Estratégia para líderes
             </Body>
           </div>
           <nav aria-labelledby="footer-program">
