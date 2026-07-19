@@ -18,17 +18,17 @@ fbq('init', '152737685478279');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></noscript>
+src="https://www.facebook.com/tr?id=152737685478279&amp;ev=PageView&amp;noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
-<title>AUTONOM.IA · Diagnóstico Estratégico de IA</title>
-<meta name="description" content="Receba um Mapa de Oportunidades com IA com os próximos passos para sua empresa implementar IA sem desperdiçar tempo, dinheiro ou equipe." />
+<title>AUTONOM.IA · Sessão Estratégica de IA — 30 minutos</title>
+<meta name="description" content="Agende uma Sessão Estratégica de IA de 30 minutos e receba um Mapa de Oportunidades com IA para identificar onde gerar valor e qual próximo passo priorizar." />
 <meta name="theme-color" content="#08080a" />
-<meta property="og:title" content="AUTONOM.IA · Diagnóstico Estratégico de IA" />
-<meta property="og:description" content="Um Mapa de Oportunidades com IA: os próximos passos para implementar IA sem desperdiçar tempo, dinheiro ou equipe." />
+<meta property="og:title" content="AUTONOM.IA · Sessão Estratégica de IA — 30 minutos" />
+<meta property="og:description" content="Identifique onde a IA pode gerar valor no seu negócio e receba um Mapa de Oportunidades com o próximo passo prioritário." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
 <style>
   /* ============ TOKENS ============ */
   :root{
@@ -153,9 +153,14 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   /* MARQUEE */
   .marquee{position:relative;overflow:hidden;border-block:1px solid var(--line-2);padding-block:22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
   .track{display:flex;align-items:center;gap:48px;width:max-content;animation:scrollx 34s linear infinite}
-  .marquee:hover .track{animation-play-state:paused}
+  .marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused}
   .track span{font-family:var(--fdisp);font-weight:500;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:-.02em;color:var(--text);opacity:.55;display:inline-flex;align-items:center;gap:48px;white-space:nowrap}
   .track span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
+  .track .term{cursor:help;border-radius:8px;transition:color .25s,opacity .25s,text-shadow .25s;outline:none}
+  .track .term:hover,.track .term:focus-visible{color:var(--orange-2);opacity:1;text-shadow:0 0 18px rgba(255,106,44,.32)}
+  .track .term:focus-visible{box-shadow:0 0 0 2px rgba(255,138,61,.45)}
+  .term-tooltip{position:fixed;z-index:9999;width:max-content;max-width:min(360px,calc(100vw - 32px));padding:13px 15px;border:1px solid rgba(255,138,61,.32);border-radius:13px;background:rgba(12,12,15,.96);color:var(--muted);font-family:var(--fbody);font-size:.93rem;font-weight:400;line-height:1.45;letter-spacing:0;box-shadow:0 18px 55px -18px rgba(0,0,0,.95),0 0 28px -18px rgba(255,106,44,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);pointer-events:none;opacity:0;transform:translateY(7px);transition:opacity .2s,transform .2s}
+  .term-tooltip.is-visible{opacity:1;transform:translateY(0)}
   .track.rev{animation-duration:40s;animation-direction:reverse}
 
   /* ============ TRAJETÓRIA AI-FIRST ============ */
@@ -307,7 +312,7 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="brand">AUTONOM<span class="d"></span>IA</div>
-    <a class="cta navbtn" data-book>Quero meu mapa</a>
+    <a class="cta navbtn" data-book>Agendar sessão</a>
   </nav>
 
   <!-- HERO -->
@@ -316,15 +321,15 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <div class="h-eyebrow"><span class="eyebrow"><span class="dot"></span>Jornada AI-First</span></div>
-          <h1 class="h-title">Sua empresa sente a pressão da IA, mas ainda não tem clareza do <span class="grad-text">próximo passo</span>?</h1>
-          <p class="h-sub">A IA não veio apenas para economizar tempo. Veio para mudar a <span class="hl">lógica de geração de valor</span>.</p>
-          <p class="h-sub2">O desafio agora é entender onde ela pode gerar valor real, sem cair em ferramentas soltas, iniciativas isoladas ou projetos grandes demais.</p>
+          <div class="h-eyebrow"><span class="eyebrow"><span class="dot"></span>Sessão Estratégica de IA · 30 minutos</span></div>
+          <h1 class="h-title">Sua empresa quer avançar com IA, mas ainda não sabe <span class="grad-text">onde começar ou o que priorizar</span>?</h1>
+          <p class="h-sub">Em uma sessão estratégica de 30 minutos, vamos identificar onde a IA pode <span class="hl">gerar valor real para o seu negócio</span>.</p>
+          <p class="h-sub2">Você recebe um Mapa de Oportunidades com IA, prioridades claras e um próximo passo aplicável ao seu cenário.</p>
           <div class="h-actions">
-            <a class="cta magnetic" data-book>Quero meu Mapa de Oportunidades com IA
+            <a class="cta magnetic" data-book>Agendar minha Sessão Estratégica
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="h-note micro">Você sai com um Mapa de Oportunidades com IA: os próximos passos para implementar IA sem desperdiçar tempo, dinheiro ou equipe. Gratuito, sem pitch.</p>
+          <p class="h-note micro">Sessão gratuita e direta ao ponto. Sem compromisso e sem venda de ferramentas.</p>
           <p class="h-note book-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Você escolhe o horário direto na agenda. Sem formulário longo.</p>
         </div>
 
@@ -350,24 +355,24 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <section class="sec">
     <div class="wrap">
       <div class="sec-head center reveal">
-        <span class="eyebrow"><span class="dot"></span>O risco real</span>
-        <h2 class="sec-title">O risco não é desconhecer a IA. É responder a uma ruptura estrutural com os <span class="grad-text">movimentos errados</span>.</h2>
+        <span class="eyebrow"><span class="dot"></span>O que trava o avanço</span>
+        <h2 class="sec-title">A dificuldade não é enxergar possibilidades com IA. É decidir <span class="grad-text">quais realmente fazem sentido para o negócio</span>.</h2>
       </div>
       <div class="grid-3">
         <div class="card reveal" style="--d:.04s">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></span>
-          <h4>Ferramentas soltas</h4>
-          <p>Apps e licenças espalhados pela empresa, sem mudar gestão, cultura ou operação.</p>
+          <h4>Ferramentas sem direção</h4>
+          <p>Apps e licenças espalhados pela empresa, sem um problema de negócio claramente definido.</p>
         </div>
         <div class="card reveal" style="--d:.12s">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="18" r="1.6"/></svg></span>
-          <h4>Iniciativas isoladas</h4>
-          <p>Experimentos pontuais que nunca chegam ao centro do negócio.</p>
+          <h4>Experimentos sem prioridade</h4>
+          <p>Testes pontuais sem critérios claros para decidir o que manter, ampliar ou interromper.</p>
         </div>
         <div class="card reveal" style="--d:.2s">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 10l7-7 7 7"/></svg></span>
-          <h4>Projetos grandes demais</h4>
-          <p>Planos ambiciosos que travam na complexidade e nunca saem do papel.</p>
+          <h4>Projetos complexos demais</h4>
+          <p>Planos ambiciosos que consomem tempo e investimento antes de comprovar valor.</p>
         </div>
       </div>
     </div>
@@ -376,10 +381,10 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <!-- A NOVA LÓGICA -->
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>A nova lógica</span></div>
+      <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>O ponto de partida</span></div>
       <div class="logic-grid">
         <p class="statement reveal" style="--d:.08s">
-          A maioria trata IA como atalho para ganhar tempo. Os líderes que saem na frente entenderam que ela mudou algo maior: <span class="grad-text">a geração de valor.</span><br>A diferença está na <span class="hl">clareza para decidir o próximo passo.</span>
+          A melhor iniciativa de IA não começa pela ferramenta. Começa por uma pergunta de negócio: <span class="grad-text">onde existe valor real a capturar?</span><br>Com essa resposta, fica mais simples <span class="hl">definir prioridades e decidir o próximo passo.</span>
         </p>
         <div class="orbit-box reveal" style="--d:.16s">
           <svg class="orbit-vis" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -403,8 +408,8 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <!-- MARQUEE CONCEITOS -->
   <div class="marquee reveal">
     <div class="track">
-      <span>Líder Orquestrador</span><span>Times Híbridos</span><span>Clareza Mínima Viável</span><span>AI-First</span><span>AI-Native</span><span>Profissionais de Alto Impacto</span>
-      <span>Líder Orquestrador</span><span>Times Híbridos</span><span>Clareza Mínima Viável</span><span>AI-First</span><span>AI-Native</span><span>Profissionais de Alto Impacto</span>
+      <span>AI-First</span><span>AI-Native</span><span>IA Agêntica</span><span>Agentes de IA</span><span>Times Híbridos</span><span>Líder Orquestrador</span><span>Automação Inteligente</span><span>Human-in-the-Loop</span><span>Governança de IA</span><span>Shadow AI</span>
+      <span>AI-First</span><span>AI-Native</span><span>IA Agêntica</span><span>Agentes de IA</span><span>Times Híbridos</span><span>Líder Orquestrador</span><span>Automação Inteligente</span><span>Human-in-the-Loop</span><span>Governança de IA</span><span>Shadow AI</span>
     </div>
   </div>
 
@@ -414,36 +419,36 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
       <div class="sec-head center reveal">
         <span class="eyebrow"><span class="dot"></span>O método</span>
         <h2 class="sec-title">Clareza Mínima Viável</h2>
-        <p class="sec-lead">Clareza Mínima Viável é o menor nível de clareza estratégica necessário para sair da paralisia, decidir o próximo passo e começar a mover a empresa na direção certa em IA. Não é um roadmap completo de três anos. É o próximo passo nítido o suficiente para decidir hoje, mobilizar pessoas e iniciar uma transformação real.</p>
+        <p class="sec-lead">Clareza Mínima Viável é a direção necessária para sair do excesso de possibilidades e tomar uma decisão aplicável agora. Não é um plano genérico de longo prazo. É uma leitura objetiva do cenário, das prioridades e do próximo passo da empresa.</p>
       </div>
       <div class="cmv-steps">
         <div class="step reveal" style="--d:.04s"><span class="num">01</span><p>Onde a IA pode gerar valor real agora?</p></div>
-        <div class="step reveal" style="--d:.14s"><span class="num">02</span><p>O que precisa mudar em gestão, cultura e tecnologia?</p></div>
+        <div class="step reveal" style="--d:.14s"><span class="num">02</span><p>Quais oportunidades merecem prioridade pelo impacto e pela viabilidade?</p></div>
         <div class="step reveal" style="--d:.24s"><span class="num">03</span><p>Qual é o próximo passo claro o suficiente para decidir e executar?</p></div>
       </div>
     </div>
   </section>
 
-  <!-- O DIAGNÓSTICO -->
+  <!-- A SESSÃO ESTRATÉGICA -->
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head center reveal"><span class="eyebrow"><span class="dot"></span>O diagnóstico</span></div>
+      <div class="sec-head center reveal"><span class="eyebrow"><span class="dot"></span>A oferta</span></div>
       <div class="tilt-wrap reveal" style="--d:.06s">
         <div class="session-card" id="tilt">
           <div class="session-glow"></div>
-          <h2 class="pop">Diagnóstico Estratégico de IA</h2>
-          <p class="lead pop">Em uma conversa de 30 minutos, você recebe um Mapa de Oportunidades com IA: iniciativas priorizadas por impacto e esforço, para você decidir com segurança o que fazer primeiro.</p>
+          <h2 class="pop">Sessão Estratégica de IA · 30 minutos</h2>
+          <p class="lead pop">Uma conversa individual para entender o cenário da sua empresa, identificar oportunidades relevantes e organizar um Mapa de Oportunidades com IA com o próximo passo prioritário.</p>
           <div class="deliverables pop">
-            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>O Mapa de Oportunidades com IA, com os próximos passos priorizados por impacto.</p></div>
-            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>Onde a IA pode gerar valor real no curto prazo, e o que ignorar agora.</p></div>
-            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>Um caminho possível sem transformar tudo em um megaprojeto.</p></div>
-            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>A indicação se faz sentido seguir para workshop, aceleração, implementação ou nenhum deles.</p></div>
+            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>Uma leitura inicial do cenário e do nível atual de uso da IA na empresa.</p></div>
+            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>As oportunidades com maior potencial de gerar valor no contexto do negócio.</p></div>
+            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>Um Mapa de Oportunidades com IA organizado por impacto e viabilidade.</p></div>
+            <div class="item"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#190c03" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><p>A recomendação de um próximo passo concreto para avançar com mais segurança.</p></div>
           </div>
           <div class="card-actions pop">
-            <a class="cta magnetic" data-book>Quero meu Mapa de Oportunidades com IA
+            <a class="cta magnetic" data-book>Agendar minha Sessão Estratégica
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="card-micro pop">A reunião não é uma venda de ferramenta. É uma conversa estratégica para entender se existe aderência real.</p>
+          <p class="card-micro pop">A sessão é gratuita e focada no seu cenário — não na venda de uma ferramenta.</p>
         </div>
       </div>
     </div>
@@ -454,13 +459,13 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
     <div class="wrap">
       <div class="sec-head center reveal">
         <span class="eyebrow"><span class="dot"></span>Para quem é</span>
-        <h2 class="sec-title">Para você que precisa transformar pressão em <span class="grad-text">próximo passo</span>.</h2>
-        <p class="sec-lead">Este diagnóstico é indicado para founders, CEOs, empresários, executivos, diretores, heads e líderes de área que sentem a pressão da IA, mas ainda precisam entender onde agir primeiro.</p>
+        <h2 class="sec-title">Para líderes que precisam transformar possibilidades com IA em <span class="grad-text">prioridades de negócio</span>.</h2>
+        <p class="sec-lead">A sessão é indicada para founders, CEOs, empresários, executivos, diretores, heads e líderes de área que querem aplicar IA, mas ainda precisam definir onde começar ou o que priorizar.</p>
       </div>
       <div class="grid-3">
-        <div class="card reveal" style="--d:.04s"><h4>Já testaram, falta centro</h4><p>Empresas que já testaram IA, mas ainda não levaram isso para o centro da operação.</p></div>
-        <div class="card reveal" style="--d:.12s"><h4>Precisam alinhar</h4><p>Líderes que precisam alinhar pessoas, processos, tecnologia e cultura.</p></div>
-        <div class="card reveal" style="--d:.2s"><h4>Crescendo com foco</h4><p>Negócios em crescimento que querem evitar ferramentas soltas, iniciativas isoladas e projetos grandes demais.</p></div>
+        <div class="card reveal" style="--d:.04s"><h4>Não sabem por onde começar</h4><p>Empresas que reconhecem o potencial da IA, mas ainda não identificaram a melhor oportunidade de entrada.</p></div>
+        <div class="card reveal" style="--d:.12s"><h4>Já testam IA, mas sem direção</h4><p>Líderes com ferramentas e experimentos em andamento, porém sem uma prioridade comum.</p></div>
+        <div class="card reveal" style="--d:.2s"><h4>Precisam escolher o projeto certo</h4><p>Negócios que querem concentrar tempo e investimento em uma iniciativa relevante e viável.</p></div>
       </div>
       <p class="filter-line reveal" style="--d:.1s">Não é para quem procura apenas uma lista de ferramentas. <b>É para quem precisa tomar decisões melhores sobre IA.</b></p>
     </div>
@@ -612,12 +617,12 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <section class="final">
     <div class="aurora"><div class="blob b1" style="top:auto;bottom:-30%"></div><div class="blob b3"></div></div>
     <div class="wrap">
-      <h2 class="reveal">A IA já mudou a lógica de geração de valor. <span class="grad-text">Agora sua empresa precisa decidir o próximo passo.</span></h2>
-      <p class="sub reveal" style="--d:.1s">Receba um Mapa de Oportunidades com IA e descubra os próximos passos para implementar IA sem desperdiçar tempo, dinheiro ou equipe.</p>
+      <h2 class="reveal">Descubra onde a IA pode gerar valor no seu negócio — e <span class="grad-text">qual próximo passo merece prioridade.</span></h2>
+      <p class="sub reveal" style="--d:.1s">Agende uma Sessão Estratégica de IA de 30 minutos e receba um Mapa de Oportunidades conectado ao cenário da sua empresa.</p>
       <div class="final-actions reveal" style="--d:.18s">
-        <a class="cta magnetic" data-book>Quero meu Mapa de Oportunidades com IA
+        <a class="cta magnetic" data-book>Agendar minha Sessão Estratégica
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <span class="micro">Gratuito. Sem pitch. Direto ao ponto.</span>
+        <span class="micro">30 minutos. Gratuita. Direta ao ponto.</span>
       </div>
     </div>
   </section>
@@ -626,7 +631,7 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
   <footer>
     <div class="wrap foot">
       <div class="brand">AUTONOM<span class="d"></span>IA</div>
-      <p class="it">Estratégia de Inteligência Artificial para quem decide.</p>
+      <p class="it">Estratégia de Inteligência Artificial para líderes e empresas.</p>
       <p>© 2026 AUTONOM.IA · Todos os direitos reservados.</p>
     </div>
   </footer>
@@ -634,7 +639,65 @@ src="https://www.facebook.com/tr?id=152737685478279&ev=PageView&noscript=1"/></n
 <script>
   // Link de agendamento (Google Calendar):
   const BOOKING_URL = "https://calendar.app.google/CXTvWXQZubn6j5KP9";
-  document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener"; });
+  document.querySelectorAll('[data-book]').forEach(a => {
+    a.href = BOOKING_URL;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.setAttribute('aria-label', 'Agendar minha Sessão Estratégica de IA de 30 minutos');
+    a.addEventListener('click', () => {
+      if (typeof fbq === 'function') fbq('trackCustom', 'ScheduleIntent');
+    });
+  });
+
+  // Glossário interativo dos termos de IA:
+  const termDescriptions = Object.freeze({
+    'AI-First': 'Estratégia que considera a IA desde o início das decisões, dos processos e dos modelos de negócio.',
+    'AI-Native': 'Negócio, produto ou processo concebido desde o início para operar com IA no centro.',
+    'IA Agêntica': 'Sistemas de IA capazes de planejar e executar ações com autonomia dentro de limites definidos.',
+    'Agentes de IA': 'Sistemas digitais que realizam tarefas, conectam ferramentas e conduzem etapas de um fluxo de trabalho.',
+    'Times Híbridos': 'Equipes que combinam julgamento e criatividade humana com a capacidade de execução dos agentes de IA.',
+    'Líder Orquestrador': 'Profissional que supervisiona times híbridos de humanos e agentes de IA.',
+    'Automação Inteligente': 'Uso de IA para executar fluxos, apoiar decisões e melhorar processos.',
+    'Human-in-the-Loop': 'Modelo em que pessoas revisam, orientam ou aprovam ações críticas realizadas pela IA.',
+    'Governança de IA': 'Regras, responsabilidades e controles para um uso seguro, ético e alinhado da IA.',
+    'Shadow AI': 'Uso de ferramentas de IA sem o conhecimento, a aprovação ou a governança da empresa.'
+  });
+  const termTooltip = document.createElement('div');
+  termTooltip.className = 'term-tooltip';
+  termTooltip.id = 'termTooltip';
+  termTooltip.setAttribute('role', 'tooltip');
+  document.body.appendChild(termTooltip);
+
+  const positionTermTooltip = term => {
+    const rect = term.getBoundingClientRect();
+    const gap = 12;
+    const width = termTooltip.offsetWidth;
+    const height = termTooltip.offsetHeight;
+    const left = Math.min(Math.max(rect.left + rect.width / 2 - width / 2, 16), window.innerWidth - width - 16);
+    const below = rect.bottom + gap;
+    const top = below + height <= window.innerHeight - 12 ? below : rect.top - height - gap;
+    termTooltip.style.left = `${left}px`;
+    termTooltip.style.top = `${Math.max(12, top)}px`;
+  };
+  const showTermTooltip = term => {
+    termTooltip.textContent = termDescriptions[term.textContent.trim()];
+    termTooltip.classList.add('is-visible');
+    requestAnimationFrame(() => positionTermTooltip(term));
+  };
+  const hideTermTooltip = () => termTooltip.classList.remove('is-visible');
+
+  document.querySelectorAll('.marquee .track span').forEach(term => {
+    if (!termDescriptions[term.textContent.trim()]) return;
+    term.classList.add('term');
+    term.tabIndex = 0;
+    term.setAttribute('aria-describedby', termTooltip.id);
+    term.addEventListener('pointerenter', () => showTermTooltip(term));
+    term.addEventListener('pointerleave', hideTermTooltip);
+    term.addEventListener('focus', () => showTermTooltip(term));
+    term.addEventListener('blur', hideTermTooltip);
+  });
+  window.addEventListener('resize', hideTermTooltip);
+  window.addEventListener('scroll', hideTermTooltip, { passive: true });
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = window.matchMedia('(pointer: fine)').matches;
